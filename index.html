@@ -651,6 +651,73 @@
             color: rgba(255, 255, 255, 0.85);
         }
 
+        /* Song of the Week */
+        .song-of-week {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 50%, #1a1a1a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 45px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .song-of-week::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff0000, #ff6600, #ffff00, #00ff00);
+        }
+
+        .song-of-week::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 102, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .song-of-week h2 {
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .song-of-week h2::before {
+            background: linear-gradient(45deg, #ff6600, #ffff00);
+        }
+
+        .youtube-container {
+            position: relative;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .youtube-container iframe {
+            display: block;
+            border-radius: 8px;
+        }
+
+        .song-title {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            font-weight: 500;
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .content-wrapper {
@@ -870,6 +937,23 @@
 
                 <!-- Sidebar -->
                 <div class="sidebar">
+                    <!-- Song of the Week -->
+                    <section class="song-of-week">
+                        <h2>Song of the Week</h2>
+                        <div class="youtube-container">
+                            <iframe 
+                                width="100%" 
+                                height="200" 
+                                src="https://www.youtube.com/embed/eDwi-8n054s" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="song-title">Silver Springs - Fleetwood Mac</p>
+                    </section>
+
                     <!-- About Me -->
                     <section class="about-sidebar">
                         <h2>About</h2>
