@@ -584,14 +584,14 @@
 
         .focus-item strong {
             font-weight: 600;
-            color: #1a1a1a;
+            color: rgba(255, 255, 255, 0.95);
             display: block;
             margin-bottom: 6px;
         }
 
         .focus-item p {
             font-size: 0.9rem;
-            color: #666;
+            color: rgba(255, 255, 255, 0.8);
             margin: 0;
         }
 
@@ -743,6 +743,77 @@
             transform: translateY(-2px);
         }
 
+        /* Currently Reading */
+        .currently-reading {
+            background: rgba(26, 26, 26, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 102, 0, 0.2);
+        }
+
+        .currently-reading h3 {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .book-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .book-cover {
+            width: 100%;
+            max-width: 120px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            align-self: center;
+            margin-bottom: 5px;
+        }
+
+        .book-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .book-title {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .book-progress {
+            color: rgba(255, 165, 0, 0.8);
+            font-size: 0.85rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .page-number {
+            color: #ff6600;
+            font-weight: 600;
+        }
+
+        .book-link {
+            color: rgba(255, 102, 0, 0.8);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            align-self: flex-start;
+        }
+
+        .book-link:hover {
+            color: #ff6600;
+            text-decoration: underline;
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .content-wrapper {
@@ -876,7 +947,7 @@
 
                     <!-- Current Projects -->
                     <section class="section" id="projects">
-                        <h2>What I'm Working On</h2>
+                        <h2>Projects</h2>
                         
                         <div class="project-card">
                             <div class="project-status">Currently Researching</div>
@@ -959,6 +1030,19 @@
                         </div>
                         <p class="song-title">Silver Springs - Fleetwood Mac</p>
                         <a href="#previous-songs" class="previous-songs-btn">View Previous Songs →</a>
+                    </section>
+
+                    <!-- Currently Reading -->
+                    <section class="currently-reading">
+                        <h3>Currently Reading</h3>
+                        <div class="book-info">
+                            <img src="https://covers.openlibrary.org/b/id/8231952-M.jpg" alt="IT by Stephen King book cover" class="book-cover">
+                            <div class="book-details">
+                                <p class="book-title"><em>IT</em> by Stephen King</p>
+                                <p class="book-progress">Page: <span class="page-number">0</span></p>
+                            </div>
+                            <a href="https://openlibrary.org/works/OL81613W/It?edition=key%3A/books/OL7572658M" target="_blank" class="book-link">View Book →</a>
+                        </div>
                     </section>
 
                     <!-- About Me -->
