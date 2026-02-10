@@ -686,57 +686,6 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
-        /* About section in sidebar */
-        .about-sidebar {
-            background: linear-gradient(135deg, #1a1a1a 0%, #333 50%, #1a1a1a 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 45px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-sidebar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #ff0000, #ff6600, #ffff00, #00ff00);
-        }
-
-        .about-sidebar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 102, 0, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .about-sidebar h2 {
-            color: white;
-            margin-bottom: 18px;
-        }
-
-        .about-sidebar h2::before {
-            background: linear-gradient(45deg, #ff6600, #ffff00);
-        }
-
-        .about-sidebar p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 18px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
         /* About section in main content */
         .about-main {
             margin-bottom: 60px;
@@ -1030,14 +979,22 @@
                 font-size: 1rem;
             }
             
-            .main-nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
+            .main-header {
+                padding: 40px 20px 70px 20px;
             }
             
-            .main-header {
-                padding: 40px 20px;
+            .main-nav {
+                position: relative;
+                gap: 12px;
+                bottom: auto;
+                transform: none;
+                margin-top: 25px;
+                flex-wrap: wrap;
+            }
+            
+            .main-nav a {
+                font-size: 0.8rem;
+                padding: 8px 16px;
             }
             
             .content-wrapper {
@@ -1076,7 +1033,28 @@
             }
             
             .main-header {
-                padding: 30px 15px;
+                padding: 30px 15px 50px 15px;
+            }
+            
+            .subtitle {
+                font-size: 0.85rem;
+                margin-bottom: 30px;
+            }
+            
+            .main-nav {
+                position: relative;
+                gap: 10px;
+                bottom: auto;
+                transform: none;
+                margin-top: 20px;
+                padding: 0 15px;
+            }
+            
+            .main-nav a {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+                flex: 1;
+                text-align: center;
             }
             
             .main-container {
@@ -1204,7 +1182,7 @@
                             <p>Platform for Music, Fashion, Art, and Cinema topics using SQL database and web development skills. Implemented account creation and commenting systems. A comprehensive full-stack project showcasing database management and modern web design.</p>
                             <div class="skills-cloud">
                                 <span class="skill-tag">SQL</span>
-                                <span class="skill-tag">Database Management</span>
+                                <span class="skill-tag">Database</span>
                                 <span class="skill-tag">Web Development</span>
                                 <span class="skill-tag">Full-Stack</span>
                             </div>
