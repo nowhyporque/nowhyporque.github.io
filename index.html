@@ -215,15 +215,40 @@
         }
 
         .updates-section::after {
-            content: '';
+            content: '↓';
             position: absolute;
-            bottom: 40px;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: linear-gradient(to bottom, transparent, rgba(13, 17, 23, 0.95));
-            pointer-events: none;
+            bottom: 50px;
+            right: 25px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #ff6600, #ff8800);
+            color: white;
+            border-radius: 50%;
+            font-size: 1rem;
+            font-weight: bold;
             z-index: 1;
+            animation: scrollBounce 2s ease-in-out infinite;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .updates-section.scrolled-to-bottom::after {
+            opacity: 0;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(8px);
+                opacity: 1;
+            }
         }
 
         .updates-scroll-container {
@@ -1293,6 +1318,25 @@
                 }
             });
         });
+
+        // Hide scroll arrow when scrolled to bottom
+        const updatesContainer = document.querySelector('.updates-scroll-container');
+        const updatesSection = document.querySelector('.updates-section');
+
+        if (updatesContainer && updatesSection) {
+            updatesContainer.addEventListener('scroll', function() {
+                const scrollTop = this.scrollTop;
+                const scrollHeight = this.scrollHeight;
+                const clientHeight = this.clientHeight;
+                
+                // Check if scrolled to bottom (within 10px threshold)
+                if (scrollTop + clientHeight >= scrollHeight - 10) {
+                    updatesSection.classList.add('scrolled-to-bottom');
+                } else {
+                    updatesSection.classList.remove('scrolled-to-bottom');
+                }
+            });
+        }
     </script>
 </body>
 </html>
