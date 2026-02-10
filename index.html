@@ -214,6 +214,18 @@
             position: relative;
         }
 
+        .updates-section::after {
+            content: '';
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, rgba(13, 17, 23, 0.95));
+            pointer-events: none;
+            z-index: 1;
+        }
+
         .updates-scroll-container {
             max-height: 450px;
             overflow-y: auto;
