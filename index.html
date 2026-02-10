@@ -217,37 +217,49 @@
         .updates-section::after {
             content: '↓';
             position: absolute;
-            bottom: 50px;
-            right: 25px;
-            width: 24px;
-            height: 24px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(45deg, #ff6600, #ff8800);
-            color: white;
-            border-radius: 50%;
-            font-size: 1rem;
+            background: rgba(160, 160, 160, 0.08);
+            border: 1px solid rgba(160, 160, 160, 0.15);
+            border-radius: 6px;
+            color: rgba(160, 160, 160, 0.4);
+            font-size: 0.6rem;
             font-weight: bold;
             z-index: 1;
-            animation: scrollBounce 2s ease-in-out infinite;
-            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
-            pointer-events: none;
-            transition: opacity 0.3s ease;
+            pointer-events: auto;
+            cursor: pointer;
+            transition: all 0.5s ease;
         }
 
         .updates-section.scrolled-to-bottom::after {
-            opacity: 0;
+            background: linear-gradient(90deg, rgba(255, 102, 0, 0.3), rgba(255, 136, 0, 0.3), rgba(255, 102, 0, 0.3));
+            border-color: #ff6600;
+            color: #ff6600;
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.6), 0 0 40px rgba(255, 102, 0, 0.3);
+            animation: barGlow 2s ease-in-out infinite;
+            cursor: default;
         }
 
-        @keyframes scrollBounce {
+        @keyframes barGlow {
             0%, 100% {
-                transform: translateY(0);
-                opacity: 0.8;
+                box-shadow: 0 0 20px rgba(255, 102, 0, 0.6), 0 0 40px rgba(255, 102, 0, 0.3);
             }
             50% {
-                transform: translateY(8px);
-                opacity: 1;
+                box-shadow: 0 0 30px rgba(255, 102, 0, 0.9), 0 0 60px rgba(255, 102, 0, 0.5);
+            }
+        }
+
+        @keyframes barGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 102, 0, 0.8), 0 0 40px rgba(255, 102, 0, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 102, 0, 1), 0 0 60px rgba(255, 102, 0, 0.6);
             }
         }
 
@@ -1305,38 +1317,61 @@
     </div>
 
     <script>
-        // Simple smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
-        });
 
-        // Hide scroll arrow when scrolled to bottom
-        const updatesContainer = document.querySelector('.updates-scroll-container');
-        const updatesSection = document.querySelector('.updates-section');
+            // Hide scroll arrow when scrolled to bottom
+            const updatesContainer = document.querySelector('.updates-scroll-container');
+            const updatesSection = document.querySelector('.updates-section');
 
-        if (updatesContainer && updatesSection) {
-            updatesContainer.addEventListener('scroll', function() {
-                const scrollTop = this.scrollTop;
-                const scrollHeight = this.scrollHeight;
-                const clientHeight = this.clientHeight;
+            if (updatesContainer && updatesSection) {
+                // Scroll detection
+                updatesContainer.addEventListener('scroll', function() {
+                    const scrollTop = this.scrollTop;
+                    const scrollHeight = this.scrollHeight;
+                    const clientHeight = this.clientHeight;
+                    
+                    // Check if scrolled to bottom (within 10px threshold)
+                    if (scrollTop + clientHeight >= scrollHeight - 10) {
+                        updatesSection.classList.add('scrolled-to-bottom');
+                    } else {
+                        updatesSection.classList.remove('scrolled-to-bottom');
+                    }
+                });
                 
-                // Check if scrolled to bottom (within 10px threshold)
-                if (scrollTop + clientHeight >= scrollHeight - 10) {
-                    updatesSection.classList.add('scrolled-to-bottom');
-                } else {
-                    updatesSection.classList.remove('scrolled-to-bottom');
-                }
-            });
-        }
+                // Click on scroll indicator to scroll to bottom
+                updatesSection.addEventListener('click', function(e) {
+                    // Check if click is on the ::after pseudo-element area
+                    const rect = updatesSection.getBoundingClientRect();
+                    const clickY = e.clientY - rect.top;
+                    const sectionHeight = rect.height;
+                    
+                    // If click is near the bottom (within the bar area)
+                    if (clickY > sectionHeight - 30) {
+                        updatesContainer.scrollTo({
+                            top: updatesContainer.scrollHeight,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+                
+                // Trigger check on load in case content is already at bottom
+                updatesContainer.dispatchEvent(new Event('scroll'));
+            }
+        });
     </script>
 </body>
 </html>
