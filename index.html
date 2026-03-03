@@ -254,15 +254,6 @@
             }
         }
 
-        @keyframes barGlow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 102, 0, 0.8), 0 0 40px rgba(255, 102, 0, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 30px rgba(255, 102, 0, 1), 0 0 60px rgba(255, 102, 0, 0.6);
-            }
-        }
-
         .updates-scroll-container {
             max-height: 450px;
             overflow-y: auto;
@@ -890,7 +881,7 @@
             color: #ff6600;
             text-decoration: none;
             border-radius: 6px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 500;
             border: 1px solid rgba(255, 102, 0, 0.3);
             transition: all 0.3s ease;
@@ -1160,7 +1151,7 @@
                         <div class="connect-buttons">
                             <a href="https://github.com/nowhyporque" target="_blank">GitHub</a>
                             <a href="https://www.linkedin.com/in/kevin-villa-055999270" target="_blank">LinkedIn</a>
-                            <a href="/cdn-cgi/l/email-protection#d2a1b7b0b3a1a6bbb3bce3e5e0e092bda7a6bebdbdb9fcb1bdbf">Email</a>
+                            <a href="mailto:sebastian1722@outlook.com">Email</a>
                         </div>
                     </section>
 
@@ -1266,19 +1257,19 @@
                     <!-- Song of the Week -->
                     <section class="song-of-week">
                         <h2>Song of the Week</h2>
-                        <p class="week-range">Feb 23 - Mar 1</p>
+                        <p class="week-range">Mar 2 - Mar 8</p>
                         <div class="youtube-container">
                             <iframe 
                                 width="100%" 
                                 height="200" 
-                                src="https://www.youtube.com/embed/HxfE6PJmGS8" 
+                                src="https://www.youtube.com/embed/OIzOUXAAyZM" 
                                 title="YouTube video player" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                 allowfullscreen>
                             </iframe>
                         </div>
-                        <p class="song-title">Lover, You Should've Come Over - Jeff Buckley</p>
+                        <p class="song-title">Lazy Boy - The Voidz</p>
                         <a href="https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG" target="_blank" class="previous-songs-btn">View Previous Songs →</a>
                     </section>
 
@@ -1316,7 +1307,7 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             // Simple smooth scrolling
@@ -1368,4 +1359,10 @@
                     }
                 });
                 
-                // Trigger check on load in cas
+                // Trigger check on load in case content is already at bottom
+                updatesContainer.dispatchEvent(new Event('scroll'));
+            }
+        });
+    </script>
+</body>
+</html>
