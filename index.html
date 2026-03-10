@@ -1296,9 +1296,11 @@
         }
 
         @media (max-width: 768px) {
-            /* Title 70% bigger */
+            /* Title sized to fit on mobile screen */
             .arcade-title {
-                font-size: 14.025rem;
+                font-size: 1.8rem;
+                text-align: center;
+                width: 100%;
             }
             
             /* All other fonts 25% smaller */
@@ -1382,11 +1384,1799 @@
             
             .main-nav {
                 position: relative;
-                gap: 12px;
+                gap: 8px;
                 bottom: auto;
                 transform: none;
                 margin-top: 25px;
                 flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .content-wrapper {
+                padding: 0 20px;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .main-content {
+                border-right: none;
+                padding-right: 0;
+            }
+            
+            .sidebar {
+                padding-left: 0;
+                border-top: 2px solid #f0f0f0;
+                padding-top: 50px;
+            }
+            
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Same rules apply from 768px breakpoint */
+            .main-header {
+                padding: 25px 15px 60px 15px;
+            }
+            
+            .content-wrapper {
+                padding: 0 15px;
+            }
+            
+            .main-nav {
+                gap: 10px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .main-nav a {
+                flex: 1;
+                text-align: center;
+                max-width: 100px;
+            }
+            
+            .main-container {
+                padding: 40px 0;
+            }
+            
+            .update-item, .project-card, .media-item {
+                padding: 25px;
+            }
+            
+            .about-sidebar {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-info">
+            <div class="nyc-time" id="nycTime"></div>
+            <button class="copyright-btn" id="copyrightBtn">©</button>
+        </div>
+        <h1 class="arcade-title">THE ETERNAL TAO</h1>
+        <nav class="main-nav">
+            <a href="#updates">Updates</a>
+            <a href="#projects">Projects</a>
+            <a href="#media">Media</a>
+            <a href="Resumev.pdf?v=2" target="_blank">Resume</a>
+        </nav>
+    </header>
+
+    <div class="legal-overlay" id="legalOverlay"></div>
+    <div class="legal-window" id="legalWindow">
+        <div class="legal-window-header" id="legalHeader">
+            <button class="legal-close-btn" id="legalCloseBtn">✕</button>
+        </div>
+        <div class="legal-window-content">
+            <div class="legal-window-title" style="text-align: center; margin-bottom: 20px;">THE ETERNAL TAO</div>
+            <p>© 2026 THE ETERNAL TAO. ALL RIGHTS RESERVED.</p>
+            <p style="margin-top: 15px;">This website and all its content, including but not limited to text, graphics, logos, images, and software, are the property of Kevin Villa or its content suppliers and are protected by international copyright laws.</p>
+            <p style="margin-top: 15px;">The compilation of all content on this site is the exclusive property of THE ETERNAL TAO and is protected by international copyright laws. All software used on this site is the property of THE ETERNAL TAO or its software suppliers and is protected by international copyright laws.</p>
+            <p style="margin-top: 15px;">Any unauthorized use, reproduction, or distribution of this website or its contents may result in severe civil and criminal penalties and will be prosecuted to the maximum extent possible under the law.</p>
+            <p style="margin-top: 15px; font-size: 0.75rem;">TYPEFACES BY Kevin Villa</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="content-grid">
+                <!-- Main Content -->
+                <div class="main-content">
+                    <!-- About Me -->
+                    <section class="about-main">
+                        <h2>About</h2>
+                        <p>Just wrapped up my bachelor's in Computer Science (Winter 2025) and dove straight into my Master's in Data Science at CUNY SPS (Spring 2026). My passion for data science grew from hands-on experience during my internships and the electives I took—now I'm all in. Can't wait to keep building my skills and get more opportunities to work in the field.</p>
+                        <p>When I'm not in class, I'm deep in my projects. Wrapping up MISHI, my stray cat tracking app, and currently researching my biggest undertaking yet: 4SeamMetrics. This baseball analytics platform is my way of combining two things I love—watching baseball and working with data. I'm building it to handle large-scale datasets using cloud infrastructure, baseball APIs, LLM workflows, and custom statistical models. This is a long-term project that'll keep evolving as I grow my skillset, and honestly, I don't see myself ever stopping work on it. It's the perfect intersection of passion and practice.</p>
+                        <div class="skills-list-main">
+                            Python • JavaScript • React • LLMs • Machine Learning • Cloud Data • APIs
+                        </div>
+                        <div class="connect-buttons">
+                            <a href="https://github.com/nowhyporque" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/kevin-villa-055999270" target="_blank">LinkedIn</a>
+                            <a href="mailto:sebastian1722@outlook.com">Email</a>
+                        </div>
+                    </section>
+
+                    <!-- Latest Updates -->
+                    <section class="section updates-section" id="updates">
+                        <h2>Latest Updates</h2>
+                        <div class="updates-scroll-container">
+                        
+                        <div class="update-item">
+                            <div class="update-date">February 1, 2026</div>
+                            <h3>Starting My Master's in Data Science Journey</h3>
+                            <p>Officially began my Master of Science in Data Science at CUNY SPS—a program ranked #1 by Tech Guide and consistently recognized by Fortune magazine as one of the nation's top data science programs. This spring semester, I'm diving into DATA 606 (Probability and Statistics for Data Analytics) and DATA 602 (Advanced Programming Techniques). The curriculum focuses on hands-on programming with R and Python, building predictive models, and working on real-world industry projects—exactly the practical skills I'm looking to master. The program's emphasis on current best practices and project-based learning aligns perfectly with my goal of becoming a well-rounded data scientist.</p>
+                            <div class="update-tags">
+                                <span class="tag">graduate school</span>
+                                <span class="tag">data science</span>
+                                <span class="tag">CUNY SPS</span>
+                                <span class="tag">milestone</span>
+                            </div>
+                        </div>
+
+                        <div class="update-item">
+                            <div class="update-date">January 5, 2026</div>
+                            <h3>Completed My Bachelor's in Computer Science</h3>
+                            <p>Just wrapped up my Bachelor's degree in Computer Science from Queens College, CUNY. The journey was incredible—I gained solid foundations in web development, database systems, algorithms, and software engineering. My first data science internship in summer 2024 sparked a deep interest in the field, which led me to take data science electives that further fueled my passion. This ultimately opened doors to a second data science internship and solidified my decision to pursue a master's degree in the field. From building full-stack applications to optimizing database queries, every project taught me something valuable. Grateful for the skills I've developed and excited to take them to the next level.</p>
+                            <div class="update-tags">
+                                <span class="tag">graduation</span>
+                                <span class="tag">computer science</span>
+                                <span class="tag">achievement</span>
+                            </div>
+                        </div>
+                        </div>
+                    </section>
+
+                    <!-- Current Projects -->
+                    <section class="section" id="projects">
+                        <h2>Projects</h2>
+                        
+                        <div class="project-card">
+                            <div class="project-status">Currently Researching</div>
+                            <h3>4SeamMetrics</h3>
+                            <p>Platform integrating baseball API's, LLM workflows, and custom statistical analysis across large structured datasets. Showcasing my evolving DS skillset and passion for baseball. Currently researching and evaluating APIs for implementation.</p>
+                            <div class="skills-cloud">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">APIs</span>
+                                <span class="skill-tag">LLM</span>
+                                <span class="skill-tag">Data Analysis</span>
+                                <span class="skill-tag">Statistics</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/nowhyporque/4SeamMetrics" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-status">Active Development</div>
+                            <h3>MISHI</h3>
+                            <p>Full-stack React/Firebase web app with Google Maps API for stray cat tracking and fostering. Implemented role-based authentication, location pinning, resource sharing, and OAuth-enabled account management. Integrated secure Firestore rules. Continuously adding new features and improvements.</p>
+                            <div class="skills-cloud">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Firebase</span>
+                                <span class="skill-tag">Google Maps API</span>
+                                <span class="skill-tag">OAuth</span>
+                                <span class="skill-tag">Firestore</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/nowhyporque/mishi" target="_blank">GitHub</a>
+                                <a href="https://drive.google.com/drive/folders/1JZfPnCouUJPcrgI3oAvu_pgUBVue3_J3" target="_blank">View Demo</a>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-status">Completed</div>
+                            <h3>Room On Fire</h3>
+                            <p>Platform for Music, Fashion, Art, and Cinema topics using SQL database and web development skills. Implemented account creation and commenting systems. A comprehensive full-stack project showcasing database management and modern web design.</p>
+                            <div class="skills-cloud">
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Database</span>
+                                <span class="skill-tag">Web Development</span>
+                                <span class="skill-tag">Full-Stack</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/nowhyporque/Room-On-fire" target="_blank">GitHub</a>
+                                <a href="https://drive.google.com/drive/folders/1a1UQ3nYrf67hTdhJyIcqEP9Z6Oq-JhFY" target="_blank">View Demo</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Media & Content -->
+                    <section class="section" id="media">
+                        <h2>Media & Content</h2>
+                        <div class="media-grid">
+                            <div class="media-item">
+                                <h3>YouTube Channel</h3>
+                                <p>Coding tutorials and project walkthroughs with a philosophical twist</p>
+                                <a href="https://www.youtube.com/@TheEternalTao2.0" target="_blank">View Channel</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Song of the Week -->
+                    <section class="song-of-week">
+                        <h2>Song of the Week</h2>
+                        <p class="week-range">Mar 9 - Mar 15</p>
+                        <div class="youtube-container">
+                            <iframe 
+                                width="100%" 
+                                height="200" 
+                                src="https://www.youtube.com/embed/r4l9bFqgMaQ" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="song-title">Nights - Frank Ocean</p>
+                        <a href="https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG" target="_blank" class="previous-songs-btn">View Previous Songs →</a>
+                    </section>
+
+                    <!-- Reading Now -->
+                    <section class="currently-reading">
+                        <h2>Reading Now</h2>
+                        <div class="book-container">
+                            <img src="https://covers.openlibrary.org/b/id/15140681-M.jpg" alt="IT by Stephen King book cover" class="book-cover">
+                            <div class="book-info">
+                                <p class="book-title"><em>IT</em> by Stephen King</p>
+                                <p class="book-progress">Page: <span class="page-number">76</span></p>
+                                <a href="https://openlibrary.org/works/OL81613W/It?edition=key%3A/books/OL7572658M" target="_blank" class="book-link">View Book →</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Current Focus -->
+                    <section class="section current-focus">
+                        <h2>Current Focus</h2>
+                        <div class="focus-item">
+                            <strong>Currently</strong>
+                            <p>Focusing on earning my Master's in Data Science and developing my projects</p>
+                        </div>
+                        <div class="focus-item">
+                            <strong>Seeking</strong>
+                            <p>Full-time position or internship opportunities in data science—open to start at any date</p>
+                        </div>
+                        <div class="focus-item">
+                            <strong>Living By</strong>
+                            <p>"The formula for success for one will lead to the self-destruction of another." — Jim Rohn</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Hide scroll arrow when scrolled to bottom
+            const updatesContainer = document.querySelector('.updates-scroll-container');
+            const updatesSection = document.querySelector('.updates-section');
+
+            if (updatesContainer && updatesSection) {
+                // Scroll detection
+                updatesContainer.addEventListener('scroll', function() {
+                    const scrollTop = this.scrollTop;
+                    const scrollHeight = this.scrollHeight;
+                    const clientHeight = this.clientHeight;
+                    
+                    // Check if scrolled to bottom (within 10px threshold)
+                    if (scrollTop + clientHeight >= scrollHeight - 10) {
+                        updatesSection.classList.add('scrolled-to-bottom');
+                    } else {
+                        updatesSection.classList.remove('scrolled-to-bottom');
+                    }
+                });
+                
+                // Click on scroll indicator to scroll to bottom
+                updatesSection.addEventListener('click', function(e) {
+                    // Check if click is on the ::after pseudo-element area
+                    const rect = updatesSection.getBoundingClientRect();
+                    const clickY = e.clientY - rect.top;
+                    const sectionHeight = rect.height;
+                    
+                    // If click is near the bottom (within the bar area)
+                    if (clickY > sectionHeight - 30) {
+                        updatesContainer.scrollTo({
+                            top: updatesContainer.scrollHeight,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+                
+                // Trigger check on load in case content is already at bottom
+                updatesContainer.dispatchEvent(new Event('scroll'));
+            }
+        });
+
+        // NYC Time Clock
+        function updateNYCTime() {
+            const now = new Date();
+            const nycTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+            const hours = nycTime.getHours().toString().padStart(2, '0');
+            const minutes = nycTime.getMinutes().toString().padStart(2, '0');
+            const seconds = nycTime.getSeconds().toString().padStart(2, '0');
+            document.getElementById('nycTime').textContent = `NYC ${hours}:${minutes}:${seconds}`;
+        }
+        updateNYCTime();
+        setInterval(updateNYCTime, 1000);
+
+        // Legal Window Controls
+        const copyrightBtn = document.getElementById('copyrightBtn');
+        const legalWindow = document.getElementById('legalWindow');
+        const legalOverlay = document.getElementById('legalOverlay');
+        const legalCloseBtn = document.getElementById('legalCloseBtn');
+        const legalHeader = document.getElementById('legalHeader');
+
+        function openLegalWindow() {
+            legalWindow.style.transform = 'translate(-50%, -50%)'; // Reset position
+            legalWindow.classList.add('active');
+            legalOverlay.classList.add('active');
+        }
+
+        function closeLegalWindow() {
+            legalWindow.classList.remove('active');
+            legalOverlay.classList.remove('active');
+        }
+
+        function toggleLegalWindow() {
+            if (legalWindow.classList.contains('active')) {
+                closeLegalWindow();
+            } else {
+                openLegalWindow();
+            }
+        }
+
+        copyrightBtn.addEventListener('click', toggleLegalWindow);
+        legalCloseBtn.addEventListener('click', closeLegalWindow);
+        legalOverlay.addEventListener('click', closeLegalWindow);
+
+        // Make legal window draggable
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+
+        legalHeader.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            initialX = e.clientX - legalWindow.offsetLeft;
+            initialY = e.clientY - legalWindow.offsetTop;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                legalWindow.style.transform = `translate(${currentX}px, ${currentY}px)`;
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eternal Tao</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
+    <style>
+        /* Pixelated Times New Roman Font - ONLY for main title */
+        @font-face {
+            font-family: 'Pixelated Times New Roman';
+            src: url('pixelated-times-new-roman.otf.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DotGothic16', monospace;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 25%, #1a1a1a 50%, #2d2d2d 75%, #1a1a1a 100%);
+            background-size: 400% 400%;
+            animation: subtleShift 15s ease infinite;
+            font-size: 16px;
+            min-height: 100vh;
+        }
+
+        @keyframes subtleShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Header */
+        .main-header {
+            background: #000;
+            padding: 25px 40px 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-info {
+            position: absolute;
+            top: 3px;
+            right: 4px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .nyc-time {
+            font-family: 'DotGothic16', monospace;
+            color: white;
+            font-size: 0.765rem;
+        }
+
+        .copyright-btn {
+            font-family: 'DotGothic16', monospace;
+            background: transparent;
+            border: none;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .copyright-btn:hover {
+            color: #ff6600;
+        }
+
+        .legal-window {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            max-width: 90vw;
+            background: #1a1a1a;
+            border: 2px solid #ff6600;
+            z-index: 1000;
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+        }
+
+        .legal-window.active {
+            display: block;
+        }
+
+        .legal-window-header {
+            background: #ff6600;
+            padding: 2px 12px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            cursor: move;
+            user-select: none;
+        }
+
+        .legal-window-title {
+            font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
+            font-size: 4rem;
+            color: #ff0000;
+            text-shadow: 
+                0.8px 0.8px 0px #000,
+                -0.8px -0.8px 0px #000,
+                0.8px -0.8px 0px #000,
+                -0.8px 0.8px 0px #000,
+                1px 1px 0px #ffff00,
+                2px 2px 0px rgba(0, 255, 0, 0.3);
+        }
+
+        .legal-close-btn {
+            font-family: 'DotGothic16', monospace;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: white;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .legal-close-btn:hover {
+            background: #ff0000;
+            border-color: #ff0000;
+        }
+
+        .legal-window-content {
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'DotGothic16', monospace;
+            color: white;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .legal-window-content::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .legal-window-content::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        .legal-window-content::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 2px;
+        }
+
+        .legal-window-content::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .legal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+
+        .legal-overlay.active {
+            display: block;
+        }
+
+        .main-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 165, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .arcade-title {
+            font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
+            font-size: 8.25rem;
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 
+                1.3px 1.3px 0px #000,
+                -1.3px -1.3px 0px #000,
+                1.3px -1.3px 0px #000,
+                -1.3px 1.3px 0px #000,
+                2px 2px 0px #ff6600,
+                4px 4px 0px #ffff00,
+                6px 6px 0px rgba(0, 255, 0, 0.3);
+            animation: arcadeGlow 3s ease-in-out infinite alternate, fontCycle 6.5s infinite;
+            letter-spacing: 0.1em;
+            position: relative;
+            z-index: 2;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        @keyframes arcadeGlow {
+            0% {
+                text-shadow: 
+                    1.3px 1.3px 0px #000,
+                    -1.3px -1.3px 0px #000,
+                    1.3px -1.3px 0px #000,
+                    -1.3px 1.3px 0px #000,
+                    2px 2px 0px #ff6600,
+                    4px 4px 0px #ffff00,
+                    6px 6px 0px rgba(0, 255, 0, 0.3);
+            }
+            100% {
+                text-shadow: 
+                    1.3px 1.3px 0px #000,
+                    -1.3px -1.3px 0px #000,
+                    1.3px -1.3px 0px #000,
+                    -1.3px 1.3px 0px #000,
+                    3px 3px 0px #ff6600,
+                    6px 6px 0px #ffff00,
+                    9px 9px 0px rgba(0, 255, 0, 0.5);
+            }
+        }
+
+        @keyframes fontCycle {
+            /* Normal for 5 seconds (0-76.92%) */
+            0%, 76.92% {
+                font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
+                transform: scale(1);
+            }
+            /* Rapid cycling through 15 fonts for 1.5 seconds (76.92-100%) */
+            /* 1.5 seconds / 15 fonts = 0.1 seconds per font = ~1.54% of total */
+            78% {
+                font-family: 'Blackletter', 'Old English Text MT', fantasy;
+                transform: scale(0.55);
+            }
+            79.5% {
+                font-family: 'Impact', fantasy;
+                transform: scale(0.55);
+            }
+            81% {
+                font-family: 'Brush Script MT', cursive;
+                transform: scale(0.55);
+            }
+            82.5% {
+                font-family: 'Courier New', monospace;
+                transform: scale(0.55);
+            }
+            84% {
+                font-family: 'Georgia', serif;
+                transform: scale(0.55);
+            }
+            85.5% {
+                font-family: 'Comic Sans MS', cursive;
+                transform: scale(0.55);
+            }
+            87% {
+                font-family: 'Fraktur', 'UnifrakturMaguntia', cursive;
+                transform: scale(0.55);
+            }
+            88.5% {
+                font-family: 'Lucida Console', monospace;
+                transform: scale(0.55);
+            }
+            90% {
+                font-family: 'Papyrus', fantasy;
+                transform: scale(0.55);
+            }
+            91.5% {
+                font-family: 'Arial Black', sans-serif;
+                transform: scale(0.55);
+            }
+            93% {
+                font-family: 'Luminari', fantasy;
+                transform: scale(0.55);
+            }
+            94.5% {
+                font-family: 'Copperplate', fantasy;
+                transform: scale(0.55);
+            }
+            96% {
+                font-family: 'Chiller', fantasy;
+                transform: scale(0.55);
+            }
+            97.5% {
+                font-family: 'Stencil', fantasy;
+                transform: scale(0.55);
+            }
+            99% {
+                font-family: 'Trattatello', cursive;
+                transform: scale(0.55);
+            }
+            /* Back to normal */
+            100% {
+                font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
+                transform: scale(1);
+            }
+        }
+
+        .subtitle {
+            font-family: 'DotGothic16', monospace;
+            font-size: 1rem;
+            color: rgba(255, 165, 0, 0.6);
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+            animation: subtitleFlicker 10s infinite;
+        }
+
+        @keyframes subtitleFlicker {
+            0% { opacity: 0.3; }
+            1% { opacity: 0.7; }
+            2% { opacity: 0.4; }
+            3%, 40% { opacity: 0.6; }
+            41% { opacity: 0.4; }
+            42% { opacity: 0.7; }
+            43%, 75% { opacity: 0.6; }
+            76% { opacity: 0.2; }
+            77% { opacity: 0.8; }
+            78% { opacity: 0.3; }
+            79% { opacity: 0.7; }
+            80% { opacity: 0.4; }
+            81% { opacity: 0.6; }
+            82%, 100% { opacity: 0; }
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 165px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            width: 100%;
+        }
+
+        .main-nav a {
+            font-family: 'Press Start 2P', monospace;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.61rem;
+            font-weight: 500;
+            padding: 12px 22px 18px 22px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: #ff6600;
+            text-decoration: underline;
+        }
+
+        /* Main Content Container */
+        .main-container {
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+            padding: 60px 0;
+            min-height: calc(100vh - 200px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 102, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 0, 0.05) 0%, transparent 50%),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 102, 0, 0.02) 2px,
+                    rgba(255, 102, 0, 0.02) 4px
+                );
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            margin-top: 0;
+        }
+
+        .main-content {
+            padding-right: 40px;
+            border-right: 1px solid #30363d;
+        }
+
+        .sidebar {
+            padding-left: 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* Updates section with scrolling */
+        .updates-section {
+            position: relative;
+        }
+
+        .updates-section::after {
+            content: '↓';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(160, 160, 160, 0.08);
+            border: 1px solid rgba(160, 160, 160, 0.15);
+            border-radius: 6px;
+            color: rgba(160, 160, 160, 0.4);
+            font-size: 0.6rem;
+            font-weight: bold;
+            z-index: 1;
+            pointer-events: auto;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .updates-section.scrolled-to-bottom::after {
+            background: linear-gradient(90deg, rgba(255, 102, 0, 0.3), rgba(255, 136, 0, 0.3), rgba(255, 102, 0, 0.3));
+            border-color: #ff6600;
+            color: #ff6600;
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.6), 0 0 40px rgba(255, 102, 0, 0.3);
+            animation: barGlow 2s ease-in-out infinite;
+            cursor: default;
+        }
+
+        @keyframes barGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 102, 0, 0.6), 0 0 40px rgba(255, 102, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 102, 0, 0.9), 0 0 60px rgba(255, 102, 0, 0.5);
+            }
+        }
+
+        .updates-scroll-container {
+            max-height: 450px;
+            overflow-y: auto;
+            padding-right: 15px;
+            margin-right: -5px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        /* Custom scrollbar styling */
+        .updates-scroll-container::-webkit-scrollbar {
+            width: 8px;
+            -webkit-appearance: none;
+        }
+
+        .updates-scroll-container::-webkit-scrollbar-track {
+            background: rgba(255, 102, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        .updates-scroll-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff6600, #ff8800);
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .updates-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #ff0000, #ff6600);
+        }
+
+        /* Firefox scrollbar */
+        .updates-scroll-container {
+            scrollbar-width: thin;
+            scrollbar-color: #ff6600 rgba(255, 102, 0, 0.1);
+            overflow-y: scroll;
+        }
+
+        h2 {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 1.19rem;
+            font-weight: 600;
+            color: #e6edf3;
+            margin-bottom: 30px;
+            letter-spacing: -0.4px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 28px;
+            background: linear-gradient(45deg, #ff0000, #ff6600, #ffff00);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 15px;
+            letter-spacing: -0.2px;
+        }
+
+        p {
+            font-family: 'DotGothic16', monospace;
+            margin-bottom: 20px;
+            color: #b1bac4;
+            line-height: 1.65;
+        }
+
+        /* Update/Blog items */
+        .update-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+            border-radius: 10px;
+            border-left: 4px solid #ff6600;
+            border: 1px solid #30363d;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .update-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 0%, rgba(255, 102, 0, 0.02) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .update-item:hover::before {
+            opacity: 1;
+        }
+
+        .update-item:hover {
+            background: linear-gradient(135deg, #21262d 0%, #161b22 100%);
+            border-left-color: #ff0000;
+            transform: translateX(5px) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.25);
+            border-color: #ff6600;
+        }
+
+        .update-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .update-date {
+            font-family: 'DotGothic16', monospace;
+            font-size: 0.85rem;
+            color: #ff6600;
+            margin-bottom: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .update-item h3 {
+            margin-bottom: 15px;
+            font-size: 0.91rem;
+            color: #f0f6fc;
+        }
+
+        .update-tags {
+            margin-top: 18px;
+        }
+
+        .tag {
+            font-family: 'DotGothic16', monospace;
+            display: inline-block;
+            background: linear-gradient(45deg, #e8e8e8, #f0f0f0);
+            color: #555;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 102, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .tag:hover::before {
+            left: 100%;
+        }
+
+        .tag:hover {
+            background: linear-gradient(45deg, #ff6600, #ff8800);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+        }
+
+        /* Project items */
+        .project-card {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff0000, #ff6600, #ffff00, #00ff00);
+            border-radius: 10px 10px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(255, 0, 0, 0.01) 0%, 
+                rgba(255, 102, 0, 0.02) 25%, 
+                rgba(255, 255, 0, 0.01) 50%, 
+                rgba(0, 255, 0, 0.005) 75%, 
+                transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover::after {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            border-color: #ff6600;
+            box-shadow: 0 12px 35px rgba(255, 102, 0, 0.3);
+            transform: translateY(-5px) scale(1.02);
+            background: linear-gradient(135deg, #21262d 0%, #161b22 100%);
+        }
+
+        .project-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-status {
+            font-family: 'DotGothic16', monospace;
+            font-size: 0.85rem;
+            color: #ff6600;
+            margin-bottom: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skills-cloud {
+            margin-top: 18px;
+        }
+
+        .skill-tag {
+            font-family: 'DotGothic16', monospace;
+            display: inline-block;
+            background: linear-gradient(45deg, #f0f0f0, #f8f8f8);
+            color: #555;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 6px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-tag::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 0, 0.3) 0%, rgba(255, 102, 0, 0.2) 100%);
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .skill-tag:hover::after {
+            width: 200px;
+            height: 200px;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(45deg, #ffff00, #ffcc00);
+            color: #333;
+            border-color: #ff6600;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 0, 0.4);
+        }
+
+        .project-links {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        .project-links a {
+            font-family: 'Press Start 2P', monospace;
+            color: #ff6600;
+            text-decoration: none;
+            margin-right: 25px;
+            font-size: 0.67rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .project-links a:hover {
+            color: #ff0000;
+            text-decoration: underline;
+        }
+
+        /* Media grid */
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .media-item {
+            padding: 25px;
+            background: #f6f6f6;
+            border-radius: 10px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+
+        .media-item:hover {
+            background: #f2f2f2;
+            border-color: #ff6600;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 102, 0, 0.08);
+        }
+
+        .media-item h3 {
+            font-size: 0.81rem;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .media-item p {
+            font-family: 'DotGothic16', monospace;
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .media-item a {
+            font-family: 'Press Start 2P', monospace;
+            color: #ff6600;
+            text-decoration: none;
+            font-size: 0.63rem;
+            font-weight: 500;
+        }
+
+        .media-item a:hover {
+            color: #ff0000;
+            text-decoration: underline;
+        }
+
+        /* Sidebar styles */
+        .sidebar .section {
+            margin-bottom: 45px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .sidebar h2 {
+            font-size: 1.01rem;
+        }
+
+        .sidebar h2::before {
+            height: 22px;
+            background: linear-gradient(45deg, #ff6600, #ffff00);
+        }
+
+        .sidebar p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .quick-links {
+            list-style: none;
+        }
+
+        .quick-links li {
+            margin-bottom: 12px;
+        }
+
+        .quick-links a {
+            font-family: 'Press Start 2P', monospace;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .quick-links a:hover {
+            background: #f8f8f8;
+            color: #ff6600;
+            transform: translateX(3px);
+        }
+
+        /* Current Focus */
+        .current-focus {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 50%, #1a1a1a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 45px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .current-focus::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff0000, #ff6600, #ffff00, #00ff00);
+        }
+
+        .current-focus::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 102, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .current-focus h2 {
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .current-focus h2::before {
+            background: linear-gradient(45deg, #ff6600, #ffff00);
+        }
+
+        .focus-item {
+            margin-bottom: 25px;
+            padding-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .focus-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .focus-item strong {
+            font-family: 'Press Start 2P', monospace;
+            font-weight: 400;
+            font-size: 0.6375rem;
+            color: #ff6600;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .focus-item p {
+            font-family: 'DotGothic16', monospace;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        /* About section in sidebar */
+        .about-sidebar {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 50%, #1a1a1a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 45px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff0000, #ff6600, #ffff00, #00ff00);
+        }
+
+        .about-sidebar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 102, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .about-sidebar h2 {
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .about-sidebar h2::before {
+            background: linear-gradient(45deg, #ff6600, #ffff00);
+        }
+
+        .about-sidebar p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* About section in main content */
+        .about-main {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .about-main h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 28px;
+            background: linear-gradient(45deg, #ff0000, #ff6600, #ffff00);
+            border-radius: 2px;
+        }
+
+        .about-main p {
+            margin-bottom: 20px;
+            color: #b1bac4;
+            line-height: 1.65;
+        }
+
+        .skills-list-main {
+            font-family: 'DotGothic16', monospace;
+            font-size: 0.9rem;
+            color: #b1bac4;
+            margin-bottom: 25px;
+        }
+
+        .connect-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .connect-buttons a {
+            font-family: 'Press Start 2P', monospace;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.67rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 102, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .connect-buttons a:hover {
+            background: #f8f8f8;
+            color: #ff6600;
+            border-color: #ff6600;
+        }
+
+        .skills-list {
+            font-family: 'DotGothic16', monospace;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Song of the Week */
+        .song-of-week {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 50%, #1a1a1a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 45px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .song-of-week::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff0000, #ff6600, #ffff00, #00ff00);
+        }
+
+        .song-of-week::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 102, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .song-of-week h2 {
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .song-of-week h2::before {
+            background: linear-gradient(45deg, #ff6600, #ffff00);
+        }
+
+        .week-range {
+            font-family: 'DotGothic16', monospace;
+            font-size: 0.7rem;
+            color: rgba(180, 180, 180, 0.8);
+            margin-bottom: 15px;
+            margin-top: -8px;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .youtube-container {
+            position: relative;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .youtube-container iframe {
+            display: block;
+            border-radius: 8px;
+        }
+
+        .song-title {
+            font-family: 'DotGothic16', monospace;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .previous-songs-btn {
+            font-family: 'Press Start 2P', monospace;
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: rgba(255, 102, 0, 0.8);
+            text-decoration: none;
+            font-size: 0.5rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .previous-songs-btn:hover {
+            color: #ff6600;
+            text-decoration: underline;
+        }
+
+        /* Currently Reading */
+        .currently-reading {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 50%, #1a1a1a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 45px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .currently-reading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff0000, #ff6600, #ffff00, #00ff00);
+        }
+
+        .currently-reading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 102, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .currently-reading h2 {
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .currently-reading h2::before {
+            background: linear-gradient(45deg, #ff6600, #ffff00);
+            height: 22px;
+        }
+
+        .book-container {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .book-cover {
+            width: 80px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            flex-shrink: 0;
+        }
+
+        .book-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .book-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .book-title {
+            font-family: 'DotGothic16', monospace;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .book-progress {
+            font-family: 'DotGothic16', monospace;
+            color: rgba(255, 165, 0, 0.8);
+            font-size: 0.85rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .page-number {
+            color: #ff6600;
+            font-weight: 600;
+        }
+
+        .book-link {
+            font-family: 'Press Start 2P', monospace;
+            color: rgba(255, 102, 0, 0.8);
+            text-decoration: none;
+            font-size: 0.5rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            margin-top: 52px;
+            display: inline-block;
+        }
+
+        .book-link:hover {
+            color: #ff6600;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                max-width: 1200px;
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Title sized to fit on mobile screen */
+            .arcade-title {
+                font-size: 1.8rem;
+                text-align: center;
+                width: 100%;
+            }
+            
+            /* All other fonts 25% smaller */
+            body {
+                font-size: 12px; /* 16px * 0.75 */
+            }
+            
+            h2 {
+                font-size: 0.8925rem; /* 1.19rem * 0.75 */
+            }
+            
+            h3 {
+                font-size: 0.735rem; /* 0.98rem * 0.75 */
+            }
+            
+            .main-nav a {
+                font-size: 0.4575rem; /* 0.61rem * 0.75 */
+                padding: 6.75px 13.5px 13.5px 13.5px;
+            }
+            
+            .nyc-time {
+                font-size: 0.57375rem; /* 0.765rem * 0.75 */
+            }
+            
+            .copyright-btn {
+                font-size: 0.9rem; /* 1.2rem * 0.75 */
+            }
+            
+            .sidebar h2 {
+                font-size: 0.7575rem; /* 1.01rem * 0.75 */
+            }
+            
+            .focus-item strong {
+                font-size: 0.478125rem; /* 0.6375rem * 0.75 */
+            }
+            
+            .focus-item p {
+                font-size: 0.675rem; /* 0.9rem * 0.75 */
+            }
+            
+            .previous-songs-btn {
+                font-size: 0.375rem; /* 0.5rem * 0.75 */
+            }
+            
+            .book-link {
+                font-size: 0.375rem; /* 0.5rem * 0.75 */
+            }
+            
+            .connect-buttons a {
+                font-size: 0.5025rem; /* 0.67rem * 0.75 */
+                padding: 7.5px 15px;
+            }
+            
+            .project-links a {
+                font-size: 0.5025rem; /* 0.67rem * 0.75 */
+            }
+            
+            .media-item a {
+                font-size: 0.4725rem; /* 0.63rem * 0.75 */
+            }
+            
+            .update-item h3 {
+                font-size: 0.6825rem; /* 0.91rem * 0.75 */
+            }
+            
+            .media-item h3 {
+                font-size: 0.6075rem; /* 0.81rem * 0.75 */
+            }
+            
+            .legal-window-title {
+                font-size: 3rem; /* 4rem * 0.75 */
+            }
+            
+            .legal-window-content {
+                font-size: 0.6375rem; /* 0.85rem * 0.75 */
+            }
+            
+            .main-header {
+                padding: 25px 20px 80px 20px;
+            }
+            
+            .main-nav {
+                position: relative;
+                gap: 8px;
+                bottom: auto;
+                transform: none;
+                margin-top: 25px;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
             }
             
             .content-wrapper {
