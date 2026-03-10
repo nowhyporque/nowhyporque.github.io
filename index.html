@@ -897,9 +897,55 @@
             transform: translateX(3px);
         }
 
+        /* Current Focus */
+        .current-focus {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 50%, #1a1a1a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 45px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .current-focus::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff0000, #ff6600, #ffff00, #00ff00);
+        }
+
+        .current-focus::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 102, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .current-focus h2 {
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .current-focus h2::before {
+            background: linear-gradient(45deg, #ff6600, #ffff00);
+        }
+
         .focus-item {
             margin-bottom: 25px;
             padding-bottom: 18px;
+            position: relative;
+            z-index: 1;
         }
 
         .focus-item:last-child {
@@ -1250,16 +1296,88 @@
         }
 
         @media (max-width: 768px) {
+            /* Title 70% bigger */
             .arcade-title {
-                font-size: 1.8rem;
+                font-size: 14.025rem;
             }
             
-            .subtitle {
-                font-size: 1rem;
+            /* All other fonts 25% smaller */
+            body {
+                font-size: 12px; /* 16px * 0.75 */
+            }
+            
+            h2 {
+                font-size: 0.8925rem; /* 1.19rem * 0.75 */
+            }
+            
+            h3 {
+                font-size: 0.735rem; /* 0.98rem * 0.75 */
+            }
+            
+            .main-nav a {
+                font-size: 0.4575rem; /* 0.61rem * 0.75 */
+                padding: 6.75px 13.5px 13.5px 13.5px;
+            }
+            
+            .nyc-time {
+                font-size: 0.57375rem; /* 0.765rem * 0.75 */
+            }
+            
+            .copyright-btn {
+                font-size: 0.9rem; /* 1.2rem * 0.75 */
+            }
+            
+            .sidebar h2 {
+                font-size: 0.7575rem; /* 1.01rem * 0.75 */
+            }
+            
+            .focus-item strong {
+                font-size: 0.478125rem; /* 0.6375rem * 0.75 */
+            }
+            
+            .focus-item p {
+                font-size: 0.675rem; /* 0.9rem * 0.75 */
+            }
+            
+            .previous-songs-btn {
+                font-size: 0.375rem; /* 0.5rem * 0.75 */
+            }
+            
+            .book-link {
+                font-size: 0.375rem; /* 0.5rem * 0.75 */
+            }
+            
+            .connect-buttons a {
+                font-size: 0.5025rem; /* 0.67rem * 0.75 */
+                padding: 7.5px 15px;
+            }
+            
+            .project-links a {
+                font-size: 0.5025rem; /* 0.67rem * 0.75 */
+            }
+            
+            .media-item a {
+                font-size: 0.4725rem; /* 0.63rem * 0.75 */
+            }
+            
+            .update-item h3 {
+                font-size: 0.6825rem; /* 0.91rem * 0.75 */
+            }
+            
+            .media-item h3 {
+                font-size: 0.6075rem; /* 0.81rem * 0.75 */
+            }
+            
+            .legal-window-title {
+                font-size: 3rem; /* 4rem * 0.75 */
+            }
+            
+            .legal-window-content {
+                font-size: 0.6375rem; /* 0.85rem * 0.75 */
             }
             
             .main-header {
-                padding: 40px 20px 70px 20px;
+                padding: 25px 20px 80px 20px;
             }
             
             .main-nav {
@@ -1269,11 +1387,6 @@
                 transform: none;
                 margin-top: 25px;
                 flex-wrap: wrap;
-            }
-            
-            .main-nav a {
-                font-size: 0.8rem;
-                padding: 8px 16px;
             }
             
             .content-wrapper {
@@ -1299,42 +1412,25 @@
             .media-grid {
                 grid-template-columns: 1fr;
             }
-            
-            h2 {
-                font-size: 1.7rem;
-            }
         }
 
         @media (max-width: 480px) {
-            .arcade-title {
-                font-size: 1.4rem;
-                line-height: 1.3;
-            }
-            
+            /* Same rules apply from 768px breakpoint */
             .main-header {
-                padding: 30px 15px 50px 15px;
+                padding: 25px 15px 60px 15px;
             }
             
-            .subtitle {
-                font-size: 0.85rem;
-                margin-bottom: 30px;
+            .content-wrapper {
+                padding: 0 15px;
             }
             
             .main-nav {
-                position: static;
                 gap: 10px;
-                bottom: auto;
-                left: auto;
-                transform: none;
-                margin-top: 20px;
-                padding: 0;
                 width: 100%;
                 justify-content: center;
             }
             
             .main-nav a {
-                font-size: 0.75rem;
-                padding: 8px 12px;
                 flex: 1;
                 text-align: center;
                 max-width: 100px;
@@ -1342,10 +1438,6 @@
             
             .main-container {
                 padding: 40px 0;
-            }
-            
-            .content-wrapper {
-                padding: 0 15px;
             }
             
             .update-item, .project-card, .media-item {
@@ -1542,7 +1634,7 @@
                     </section>
 
                     <!-- Current Focus -->
-                    <section class="section">
+                    <section class="section current-focus">
                         <h2>Current Focus</h2>
                         <div class="focus-item">
                             <strong>Currently</strong>
