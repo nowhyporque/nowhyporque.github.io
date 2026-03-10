@@ -75,7 +75,7 @@
                 2px 2px 0px #ff6600,
                 4px 4px 0px #ffff00,
                 6px 6px 0px rgba(0, 255, 0, 0.3);
-            animation: arcadeGlow 3s ease-in-out infinite alternate;
+            animation: arcadeGlow 3s ease-in-out infinite alternate, fontCycle 6.5s infinite;
             letter-spacing: 0.1em;
             position: relative;
             z-index: 2;
@@ -104,6 +104,64 @@
                     6px 6px 0px #ffff00,
                     9px 9px 0px rgba(0, 255, 0, 0.5);
                 transform: scale(1.02);
+            }
+        }
+
+        @keyframes fontCycle {
+            /* Normal for 5 seconds (0-76.92%) */
+            0%, 76.92% {
+                font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
+            }
+            /* Rapid cycling through 15 fonts for 1.5 seconds (76.92-100%) */
+            /* 1.5 seconds / 15 fonts = 0.1 seconds per font = ~1.54% of total */
+            78% {
+                font-family: 'Blackletter', 'Old English Text MT', fantasy;
+            }
+            79.5% {
+                font-family: 'Impact', fantasy;
+            }
+            81% {
+                font-family: 'Brush Script MT', cursive;
+            }
+            82.5% {
+                font-family: 'Courier New', monospace;
+            }
+            84% {
+                font-family: 'Georgia', serif;
+            }
+            85.5% {
+                font-family: 'Comic Sans MS', cursive;
+            }
+            87% {
+                font-family: 'Fraktur', 'UnifrakturMaguntia', cursive;
+            }
+            88.5% {
+                font-family: 'Lucida Console', monospace;
+            }
+            90% {
+                font-family: 'Papyrus', fantasy;
+            }
+            91.5% {
+                font-family: 'Arial Black', sans-serif;
+            }
+            93% {
+                font-family: 'Luminari', fantasy;
+            }
+            94.5% {
+                font-family: 'Copperplate', fantasy;
+            }
+            96% {
+                font-family: 'Chiller', fantasy;
+            }
+            97.5% {
+                font-family: 'Stencil', fantasy;
+            }
+            99% {
+                font-family: 'Trattatello', cursive;
+            }
+            /* Back to normal */
+            100% {
+                font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
             }
         }
 
@@ -1158,7 +1216,6 @@
     <!-- Header -->
     <header class="main-header">
         <h1 class="arcade-title">THE ETERNAL TAO</h1>
-        <p class="subtitle">Kevin's corner of the digital world</p>
         <nav class="main-nav">
             <a href="#updates">Updates</a>
             <a href="#projects">Projects</a>
