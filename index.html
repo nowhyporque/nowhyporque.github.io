@@ -1317,10 +1317,12 @@
             }
             
             .main-nav a {
-                font-size: 0.55rem; /* Bigger and more readable */
-                padding: 8px 15px 12px 15px;
-                flex: 0 0 calc(50% - 4px); /* 2 buttons per row */
+                font-size: 0.45rem;
+                padding: 6px 5px 10px 5px;
+                flex: 0 0 auto;
                 text-align: center;
+                min-width: 0;
+                white-space: nowrap;
             }
             
             .nyc-time {
@@ -1386,13 +1388,16 @@
             
             .main-nav {
                 position: relative;
-                gap: 8px;
+                gap: 3px;
                 bottom: auto;
                 transform: none;
                 margin-top: 25px;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
                 justify-content: center;
                 width: 100%;
+                max-width: 100%;
+                padding: 0;
+                display: flex;
             }
             
             .content-wrapper {
@@ -1622,7 +1627,7 @@
                                 allowfullscreen>
                             </iframe>
                         </div>
-                        <p class="song-title">Liberation - Outkast</p>
+                        <p class="song-title">LIBERATION - Outkast</p>
                         <a href="https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG" target="_blank" class="previous-songs-btn">View Previous Songs →</a>
                     </section>
 
