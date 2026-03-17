@@ -222,7 +222,7 @@
                 2px 2px 0px #ff6600,
                 4px 4px 0px #ffff00,
                 6px 6px 0px rgba(0, 255, 0, 0.3);
-            animation: fontCycle 6.5s infinite;
+            animation: arcadeGlow 3s ease-in-out infinite alternate, fontCycle 6.5s infinite;
             letter-spacing: 0.1em;
             position: relative;
             z-index: 2;
@@ -256,237 +256,61 @@
         }
 
         @keyframes fontCycle {
-            /* Normal for 5 seconds (0-76.92%) - WITH glow animation */
-            0% {
+            /* Normal for 5 seconds (0-76.92%) */
+            0%, 76.92% {
                 font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
                 transform: scale(1);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
             }
-            38% {
-                font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
-                transform: scale(1);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    3px 3px 0px #ff6600,
-                    6px 6px 0px #ffff00,
-                    9px 9px 0px rgba(0, 255, 0, 0.5);
-            }
-            76.92% {
-                font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
-                transform: scale(1);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            /* Rapid cycling through 15 fonts for 1.5 seconds (76.92-100%) - STATIC shadow */
-            /* 1.5 seconds / 15 fonts = 0.1 seconds per font = ~1.54% of total */
+            /* Rapid cycling through 3 fonts for 1.5 seconds (76.92-100%) */
+            /* Random order, no consecutive repeats */
             78% {
-                font-family: 'Blackletter', 'Old English Text MT', fantasy;
-                transform: scale(0.52);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            79.5% {
                 font-family: 'Impact', fantasy;
                 transform: scale(0.42);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
             }
-            81% {
-                font-family: 'Brush Script MT', cursive;
-                transform: scale(0.58);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            82.5% {
-                font-family: 'Courier New', monospace;
-                transform: scale(0.55);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            84% {
-                font-family: 'Georgia', serif;
-                transform: scale(0.55);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            85.5% {
-                font-family: 'Comic Sans MS', cursive;
-                transform: scale(0.55);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            87% {
-                font-family: 'Fraktur', 'UnifrakturMaguntia', cursive;
-                transform: scale(0.50);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            88.5% {
-                font-family: 'Lucida Console', monospace;
-                transform: scale(0.55);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            90% {
-                font-family: 'Papyrus', fantasy;
-                transform: scale(0.52);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            91.5% {
-                font-family: 'Arial Black', sans-serif;
-                transform: scale(0.44);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            93% {
+            80% {
                 font-family: 'Luminari', fantasy;
                 transform: scale(0.48);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
             }
-            94.5% {
-                font-family: 'Copperplate', fantasy;
-                transform: scale(0.40);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            96% {
-                font-family: 'Chiller', fantasy;
-                transform: scale(0.52);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            97.5% {
-                font-family: 'Stencil', fantasy;
-                transform: scale(0.46);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
-            }
-            99% {
+            82% {
                 font-family: 'Trattatello', cursive;
                 transform: scale(0.54);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
+            }
+            84% {
+                font-family: 'Impact', fantasy;
+                transform: scale(0.42);
+            }
+            86% {
+                font-family: 'Trattatello', cursive;
+                transform: scale(0.54);
+            }
+            88% {
+                font-family: 'Luminari', fantasy;
+                transform: scale(0.48);
+            }
+            90% {
+                font-family: 'Impact', fantasy;
+                transform: scale(0.42);
+            }
+            92% {
+                font-family: 'Luminari', fantasy;
+                transform: scale(0.48);
+            }
+            94% {
+                font-family: 'Trattatello', cursive;
+                transform: scale(0.54);
+            }
+            96% {
+                font-family: 'Luminari', fantasy;
+                transform: scale(0.48);
+            }
+            98% {
+                font-family: 'Impact', fantasy;
+                transform: scale(0.42);
             }
             /* Back to normal */
             100% {
                 font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
                 transform: scale(1);
-                text-shadow: 
-                    1.3px 1.3px 0px #000,
-                    -1.3px -1.3px 0px #000,
-                    1.3px -1.3px 0px #000,
-                    -1.3px 1.3px 0px #000,
-                    2px 2px 0px #ff6600,
-                    4px 4px 0px #ffff00,
-                    6px 6px 0px rgba(0, 255, 0, 0.3);
             }
         }
 
