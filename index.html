@@ -200,6 +200,14 @@
             pointer-events: none;
         }
 
+        .title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 120px;
+        }
+
         .arcade-title {
             font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
             font-size: 8.25rem;
@@ -221,8 +229,7 @@
             line-height: 1.2;
             white-space: nowrap;
             transform-origin: center center;
-            display: block;
-            width: 100%;
+            display: inline-block;
         }
 
         @keyframes arcadeGlow {
@@ -1299,11 +1306,16 @@
         }
 
         @media (max-width: 768px) {
+            /* Mobile title container */
+            .title-container {
+                min-height: 80px;
+            }
+            
             /* Title sized to fit on mobile screen */
             .arcade-title {
                 font-size: 2.7rem;
                 text-align: center;
-                width: 100%;
+                width: auto;
                 margin-bottom: 0;
             }
             
@@ -1480,7 +1492,9 @@
             <div class="nyc-time" id="nycTime"></div>
             <button class="copyright-btn" id="copyrightBtn">©</button>
         </div>
-        <h1 class="arcade-title">THE ETERNAL TAO</h1>
+        <div class="title-container">
+            <h1 class="arcade-title">THE ETERNAL TAO</h1>
+        </div>
         <nav class="main-nav">
             <a href="#updates">Updates</a>
             <a href="#projects">Projects</a>
