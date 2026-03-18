@@ -109,7 +109,6 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            cursor: move;
             user-select: none;
         }
 
@@ -1750,7 +1749,6 @@
         const legalHeader = document.getElementById('legalHeader');
 
         function openLegalWindow() {
-            legalWindow.style.transform = 'translate(-50%, -50%)'; // Reset position
             legalWindow.classList.add('active');
             legalOverlay.classList.add('active');
         }
@@ -1771,32 +1769,6 @@
         copyrightBtn.addEventListener('click', toggleLegalWindow);
         legalCloseBtn.addEventListener('click', closeLegalWindow);
         legalOverlay.addEventListener('click', closeLegalWindow);
-
-        // Make legal window draggable
-        let isDragging = false;
-        let currentX;
-        let currentY;
-        let initialX;
-        let initialY;
-
-        legalHeader.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            initialX = e.clientX - legalWindow.offsetLeft;
-            initialY = e.clientY - legalWindow.offsetTop;
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                e.preventDefault();
-                currentX = e.clientX - initialX;
-                currentY = e.clientY - initialY;
-                legalWindow.style.transform = `translate(${currentX}px, ${currentY}px)`;
-            }
-        });
-
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
     </script>
 </body>
 </html>
