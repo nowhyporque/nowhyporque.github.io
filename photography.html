@@ -197,25 +197,52 @@
     <script src="js/main.js"></script>
     <script>
         // Photo Gallery Data
-        // Add your photos here - just list the filenames
-        const allPhotos = [
-            'photo1.jpg',
-            'photo2.jpg',
-            'photo3.jpg',
-            'photo4.jpg',
-            'photo5.jpg',
-            'photo6.jpg',
-            'photo7.jpg',
-            'photo8.jpg',
-            'photo9.jpg',
-            'photo10.jpg',
-            'photo11.jpg',
-            'photo12.jpg',
-            // Add more photos as needed
-        ];
-
-        const photosPerPage = 9;
+        // FULLY AUTOMATIC: Just upload photos named photo1.jpg, photo2.jpg, photo3.jpg, etc.
+        // The code will automatically find the highest number and display newest first
+        
+        let allPhotos = [];
         let currentPage = 1;
+        const photosPerPage = 9;
+        let photosLoaded = false;
+
+        // Auto-detect all photos by trying to load them
+        async function detectPhotos() {
+            const photos = [];
+            let photoNumber = 1;
+            const maxPhotosToCheck = 500; // Safety limit
+            
+            // Try loading photos starting from photo1.jpg
+            while (photoNumber <= maxPhotosToCheck) {
+                const img = new Image();
+                const photoExists = await new Promise((resolve) => {
+                    img.onload = () => resolve(true);
+                    img.onerror = () => resolve(false);
+                    img.src = `photos/photo${photoNumber}.jpg`;
+                });
+                
+                if (photoExists) {
+                    photos.push(`photo${photoNumber}.jpg`);
+                    photoNumber++;
+                } else {
+                    break; // Stop when we find a photo that doesn't exist
+                }
+            }
+            
+            // Reverse array so newest (highest number) is first
+            return photos.reverse();
+        }
+
+        async function initGallery() {
+            allPhotos = await detectPhotos();
+            if (allPhotos.length === 0) {
+                document.getElementById('photoGrid').innerHTML = '<p style="color: white; text-align: center; font-family: DotGothic16;">No photos found. Upload photos to the photos/ folder named photo1.jpg, photo2.jpg, etc.</p>';
+                document.getElementById('pagination').innerHTML = '';
+                return;
+            }
+            photosLoaded = true;
+            renderPhotos();
+            renderPagination();
+        }
 
         function renderPhotos() {
             const startIndex = (currentPage - 1) * photosPerPage;
@@ -291,8 +318,7 @@
 
         // Initial render
         document.addEventListener('DOMContentLoaded', function() {
-            renderPhotos();
-            renderPagination();
+            initGallery();
         });
     </script>
 </body>
