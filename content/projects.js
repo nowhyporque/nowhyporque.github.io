@@ -7,7 +7,8 @@ const projectsData = [
         skills: ["Python", "APIs", "LLM", "Data Analysis", "Statistics"],
         links: {
             github: "https://github.com/nowhyporque/4SeamMetrics",
-            demo: null
+            demo: null,
+            projectPage: "projects/4seammetrics.html"
         },
         slug: "4seammetrics"
     },
@@ -18,7 +19,8 @@ const projectsData = [
         skills: ["React", "Firebase", "Google Maps API", "OAuth", "Firestore"],
         links: {
             github: "https://github.com/nowhyporque/mishi",
-            demo: "https://drive.google.com/drive/folders/1JZfPnCouUJPcrgI3oAvu_pgUBVue3_J3"
+            demo: "https://drive.google.com/drive/folders/1JZfPnCouUJPcrgI3oAvu_pgUBVue3_J3",
+            projectPage: "projects/mishi.html"
         },
         slug: "mishi"
     },
@@ -29,7 +31,8 @@ const projectsData = [
         skills: ["SQL", "Database", "Web Development", "Full-Stack"],
         links: {
             github: "https://github.com/nowhyporque/Room-On-fire",
-            demo: "https://drive.google.com/drive/folders/1a1UQ3nYrf67hTdhJyIcqEP9Z6Oq-JhFY"
+            demo: "https://drive.google.com/drive/folders/1a1UQ3nYrf67hTdhJyIcqEP9Z6Oq-JhFY",
+            projectPage: "projects/room-on-fire.html"
         },
         slug: "room-on-fire"
     }
@@ -49,6 +52,7 @@ function renderProjects() {
                 ${project.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
             </div>
             <div class="project-links">
+                ${project.links.projectPage ? `<a href="${project.links.projectPage}">Learn More</a>` : ''}
                 <a href="${project.links.github}" target="_blank">GitHub</a>
                 ${project.links.demo ? `<a href="${project.links.demo}" target="_blank">View Demo</a>` : ''}
             </div>
