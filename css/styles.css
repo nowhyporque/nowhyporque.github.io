@@ -1325,8 +1325,8 @@ p {
         position: static;
         transform: none;
         margin-top: 20px;
-        gap: 2px; /* Much smaller gap - was 5px */
-        padding: 0 10px; /* Less side padding */
+        gap: 0px; /* No gap at all */
+        padding: 0 5px; /* Minimal side padding */
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
@@ -1334,8 +1334,8 @@ p {
     }
     
     .main-nav a {
-        font-size: 0.1rem; /* Much smaller - was 0.5rem */
-        padding: 6px 5px 8px 5px; /* Much tighter padding */
+        font-size: 0.32rem; /* Even smaller - was 0.38rem */
+        padding: 6px 3px 8px 3px; /* Very tight padding - was 5px */
         flex: 0 0 auto;
         text-align: center;
         white-space: nowrap;
@@ -1344,8 +1344,8 @@ p {
     /* Show nav separators on mobile */
     .nav-separator {
         display: inline;
-        font-size: 0.38rem; /* Match button size */
-        padding: 0 1px; /* Very tight spacing */
+        font-size: 0.32rem; /* Match button size */
+        padding: 0 1px; /* Minimal spacing - was 2px */
     }
     
     /* All other fonts 25% smaller */
@@ -1466,6 +1466,6 @@ p {
     }
     
     .about-sidebar {
-        padding:  25px;
+        padding: 25px;
     }
 }
