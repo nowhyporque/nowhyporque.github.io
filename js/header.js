@@ -17,9 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <nav class="main-nav">
                 <a href="${basePath}index.html#updates">Updates</a>
+                <span class="nav-separator">|</span>
                 <a href="${basePath}index.html#projects">Projects</a>
+                <span class="nav-separator">|</span>
                 <a href="${basePath}index.html#media">Media</a>
+                <span class="nav-separator">|</span>
                 <a href="${basePath}photography.html">Photography</a>
+                <span class="nav-separator">|</span>
                 <a href="${basePath}Resumev.pdf?v=2" target="_blank">Resume</a>
             </nav>
         </header>
