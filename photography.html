@@ -211,17 +211,36 @@
             let photoNumber = 1;
             const maxPhotosToCheck = 500; // Safety limit
             
-            // Try loading photos starting from photo1.jpg
+            // Try loading photos starting from photo1.jpg or photo1.JPG
             while (photoNumber <= maxPhotosToCheck) {
-                const img = new Image();
-                const photoExists = await new Promise((resolve) => {
-                    img.onload = () => resolve(true);
-                    img.onerror = () => resolve(false);
-                    img.src = `photos/photo${photoNumber}.jpg`;
+                let foundPhoto = null;
+                
+                // Try .JPG first (uppercase)
+                const imgJPG = new Image();
+                const existsJPG = await new Promise((resolve) => {
+                    imgJPG.onload = () => resolve(true);
+                    imgJPG.onerror = () => resolve(false);
+                    imgJPG.src = `photos/photo${photoNumber}.JPG`;
                 });
                 
-                if (photoExists) {
-                    photos.push(`photo${photoNumber}.jpg`);
+                if (existsJPG) {
+                    foundPhoto = `photo${photoNumber}.JPG`;
+                } else {
+                    // Try .jpg (lowercase)
+                    const imgJpg = new Image();
+                    const existsJpg = await new Promise((resolve) => {
+                        imgJpg.onload = () => resolve(true);
+                        imgJpg.onerror = () => resolve(false);
+                        imgJpg.src = `photos/photo${photoNumber}.jpg`;
+                    });
+                    
+                    if (existsJpg) {
+                        foundPhoto = `photo${photoNumber}.jpg`;
+                    }
+                }
+                
+                if (foundPhoto) {
+                    photos.push(foundPhoto);
                     photoNumber++;
                 } else {
                     break; // Stop when we find a photo that doesn't exist
