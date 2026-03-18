@@ -222,7 +222,7 @@
                 2px 2px 0px #ff6600,
                 4px 4px 0px #ffff00,
                 6px 6px 0px rgba(0, 255, 0, 0.3);
-            animation: arcadeGlow 3s ease-in-out infinite alternate, fontCycle 6.5s infinite;
+            animation: arcadeGlow 3s ease-in-out infinite alternate, fontCycle 7.5s infinite;
             letter-spacing: 0.1em;
             position: relative;
             z-index: 2;
@@ -256,55 +256,51 @@
         }
 
         @keyframes fontCycle {
-            /* Normal for 5 seconds (0-76.92%) */
-            0%, 76.92% {
+            /* Normal for 6 seconds (0-80%) */
+            0%, 80% {
                 font-family: 'Pixelated Times New Roman', 'Press Start 2P', monospace;
                 transform: scale(1);
             }
-            /* Rapid cycling through 5 fonts for 1.5 seconds (76.92-100%) */
+            /* Rapid cycling through 5 fonts for 1.5 seconds (80-100%) */
             /* All same size, all cross-platform compatible */
-            78% {
+            81% {
                 font-family: 'Impact', sans-serif;
                 transform: scale(0.55);
             }
-            80% {
+            83% {
                 font-family: 'Arial Black', sans-serif;
                 transform: scale(0.55);
             }
-            82% {
+            85% {
                 font-family: 'Courier New', monospace;
                 transform: scale(0.55);
             }
-            84% {
+            87% {
                 font-family: 'Georgia', serif;
                 transform: scale(0.55);
             }
-            86% {
+            89% {
                 font-family: 'Verdana', sans-serif;
                 transform: scale(0.55);
             }
-            88% {
+            91% {
                 font-family: 'Impact', sans-serif;
                 transform: scale(0.55);
             }
-            90% {
+            93% {
                 font-family: 'Courier New', monospace;
                 transform: scale(0.55);
             }
-            92% {
+            95% {
                 font-family: 'Arial Black', sans-serif;
                 transform: scale(0.55);
             }
-            94% {
+            97% {
                 font-family: 'Georgia', serif;
                 transform: scale(0.55);
             }
-            96% {
+            99% {
                 font-family: 'Verdana', sans-serif;
-                transform: scale(0.55);
-            }
-            98% {
-                font-family: 'Impact', sans-serif;
                 transform: scale(0.55);
             }
             /* Back to normal */
