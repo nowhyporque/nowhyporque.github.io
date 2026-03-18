@@ -1334,7 +1334,7 @@ p {
     }
     
     .main-nav a {
-        font-size: 0.38rem; /* Much smaller - was 0.5rem */
+        font-size: 0.1rem; /* Much smaller - was 0.5rem */
         padding: 6px 5px 8px 5px; /* Much tighter padding */
         flex: 0 0 auto;
         text-align: center;
@@ -1345,7 +1345,7 @@ p {
     .nav-separator {
         display: inline;
         font-size: 0.38rem; /* Match button size */
-        padding: 0 2px; /* Very tight spacing */
+        padding: 0 1px; /* Very tight spacing */
     }
     
     /* All other fonts 25% smaller */
