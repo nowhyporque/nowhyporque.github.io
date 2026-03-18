@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room On Fire - The Eternal Tao</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* Project page specific styles */
+        .project-hero {
+            background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+            padding: 60px 40px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, #ff0000, #ff6600, #ffff00, #00ff00) 1;
+        }
+
+        .project-hero h1 {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 2.5rem;
+            color: #ff6600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .project-meta {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .project-status-badge {
+            font-family: 'DotGothic16', monospace;
+            display: inline-block;
+            background: linear-gradient(45deg, #00cc00, #00ff00);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .project-section {
+            margin-bottom: 60px;
+        }
+
+        .project-section h2 {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 1.5rem;
+            color: #e6edf3;
+            margin-bottom: 30px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .project-section h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 35px;
+            background: linear-gradient(45deg, #ff6600, #ffff00);
+            border-radius: 2px;
+        }
+
+        .project-section p {
+            font-family: 'DotGothic16', monospace;
+            color: #b1bac4;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .project-section ul {
+            font-family: 'DotGothic16', monospace;
+            color: #b1bac4;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .project-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .tech-badge {
+            font-family: 'DotGothic16', monospace;
+            background: linear-gradient(45deg, #f0f0f0, #f8f8f8);
+            color: #555;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background: linear-gradient(45deg, #ffff00, #ffcc00);
+            color: #333;
+            border-color: #ff6600;
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            font-family: 'Press Start 2P', monospace;
+            display: inline-block;
+            color: #ff6600;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #ff0000;
+            text-decoration: underline;
+        }
+
+        .external-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .external-links a {
+            font-family: 'Press Start 2P', monospace;
+            color: white;
+            background: linear-gradient(45deg, #ff6600, #ff8800);
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .external-links a:hover {
+            background: linear-gradient(45deg, #ff0000, #ff6600);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 102, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-info">
+            <div class="nyc-time" id="nycTime"></div>
+            <button class="copyright-btn" id="copyrightBtn">©</button>
+        </div>
+        <div class="title-container">
+            <h1 class="arcade-title">THE ETERNAL TAO</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="../index.html#updates">Updates</a>
+            <a href="../index.html#projects">Projects</a>
+            <a href="../index.html#media">Media</a>
+            <a href="../Resumev.pdf?v=2" target="_blank">Resume</a>
+        </nav>
+    </header>
+
+    <div class="legal-overlay" id="legalOverlay"></div>
+    <div class="legal-window" id="legalWindow">
+        <div class="legal-window-header" id="legalHeader">
+            <button class="legal-close-btn" id="legalCloseBtn">✕</button>
+        </div>
+        <div class="legal-window-content">
+            <div class="legal-window-title" style="text-align: center; margin-bottom: 20px;">THE ETERNAL TAO</div>
+            <p>© 2026 THE ETERNAL TAO. ALL RIGHTS RESERVED.</p>
+            <p style="margin-top: 15px;">This website and all its content, including but not limited to text, graphics, logos, images, and software, are the property of Kevin Villa or its content suppliers and are protected by international copyright laws.</p>
+            <p style="margin-top: 15px;">The compilation of all content on this site is the exclusive property of THE ETERNAL TAO and is protected by international copyright laws. All software used on this site is the property of THE ETERNAL TAO or its software suppliers and is protected by international copyright laws.</p>
+            <p style="margin-top: 15px;">Any unauthorized use, reproduction, or distribution of this website or its contents may result in severe civil and criminal penalties and will be prosecuted to the maximum extent possible under the law.</p>
+            <p style="margin-top: 15px; font-size: 0.75rem;">TYPEFACES BY Kevin Villa</p>
+        </div>
+    </div>
+
+    <!-- Project Hero -->
+    <div class="project-hero">
+        <div class="project-meta">
+            <span class="project-status-badge">Completed</span>
+        </div>
+        <h1>Room On Fire</h1>
+    </div>
+
+    <!-- Project Content -->
+    <div class="main-container">
+        <div class="project-content">
+            <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+
+            <div class="project-section">
+                <h2>Overview</h2>
+                <p>Room On Fire is a full-stack web platform dedicated to discussions about Music, Fashion, Art, and Cinema. Built as a comprehensive database-driven application, it demonstrates proficiency in SQL database design, user authentication systems, and modern web development practices.</p>
+                <p>The platform creates a space for cultural enthusiasts to share opinions, discover new content, and engage in meaningful discussions across multiple creative domains. It showcases the complete development lifecycle from database architecture to front-end implementation.</p>
+            </div>
+
+            <div class="project-section">
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>User Authentication System:</strong> Secure account creation and login functionality with password hashing and session management</li>
+                    <li><strong>Multi-Category Platform:</strong> Separate sections for Music, Fashion, Art, and Cinema with tailored content structures</li>
+                    <li><strong>Commenting System:</strong> Interactive discussion threads allowing users to engage with posts and each other</li>
+                    <li><strong>SQL Database:</strong> Robust relational database design with normalized tables and optimized queries</li>
+                    <li><strong>Content Management:</strong> User-generated content with moderation capabilities</li>
+                    <li><strong>Responsive Design:</strong> Modern web interface that works across devices</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2>Technology Stack</h2>
+                <div class="tech-stack">
+                    <span class="tech-badge">SQL</span>
+                    <span class="tech-badge">Database Design</span>
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">PHP/Backend</span>
+                    <span class="tech-badge">User Authentication</span>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2>Database Architecture</h2>
+                <p>The foundation of Room On Fire is a carefully designed relational database that handles:</p>
+                <ul>
+                    <li><strong>User Management:</strong> User accounts, profiles, and authentication credentials</li>
+                    <li><strong>Content Organization:</strong> Posts categorized by topic (Music, Fashion, Art, Cinema) with metadata</li>
+                    <li><strong>Comment Threading:</strong> Hierarchical comment system supporting nested discussions</li>
+                    <li><strong>Relationships:</strong> Foreign keys linking users to their posts and comments</li>
+                    <li><strong>Query Optimization:</strong> Indexed fields for fast retrieval of popular content</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2>Development Process</h2>
+                <p>Building Room On Fire involved:</p>
+                <ul>
+                    <li>Designing an entity-relationship diagram (ERD) to model data relationships</li>
+                    <li>Writing SQL schemas to create normalized database tables</li>
+                    <li>Implementing secure user authentication with salted password hashing</li>
+                    <li>Developing server-side logic for CRUD operations</li>
+                    <li>Creating a clean, intuitive user interface for content browsing and interaction</li>
+                    <li>Testing database queries for performance and security vulnerabilities</li>
+                    <li>Implementing input validation and SQL injection prevention</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2>Key Learning Outcomes</h2>
+                <ul>
+                    <li><strong>Database Design:</strong> Gained deep understanding of relational database principles, normalization, and schema design</li>
+                    <li><strong>SQL Proficiency:</strong> Developed skills in writing complex queries, joins, and optimizing database performance</li>
+                    <li><strong>Security Best Practices:</strong> Learned to implement secure authentication and protect against common vulnerabilities</li>
+                    <li><strong>Full-Stack Development:</strong> Experienced the complete workflow from database to user interface</li>
+                    <li><strong>User Experience:</strong> Designed intuitive interfaces for content discovery and community interaction</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2>Project Significance</h2>
+                <p>Room On Fire represents a foundational project in my journey as a developer. It was one of my first experiences building a complete, database-driven web application from scratch. The skills I developed—particularly in SQL and database design—have been invaluable in my subsequent projects and continue to inform my approach to data architecture.</p>
+                <p>This project taught me the importance of planning database structures before coding, the value of secure authentication systems, and how to build scalable web applications that can grow with user needs.</p>
+            </div>
+
+            <div class="external-links">
+                <a href="https://github.com/nowhyporque/Room-On-fire" target="_blank">View on GitHub</a>
+                <a href="https://drive.google.com/drive/folders/1a1UQ3nYrf67hTdhJyIcqEP9Z6Oq-JhFY" target="_blank">View Demo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
