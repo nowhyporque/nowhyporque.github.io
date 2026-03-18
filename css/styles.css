@@ -1325,8 +1325,8 @@ p {
         position: static;
         transform: none;
         margin-top: 20px;
-        gap: 5px; /* Was 10px, now 50% smaller */
-        padding: 0 15px;
+        gap: 2px; /* Much smaller gap - was 5px */
+        padding: 0 10px; /* Less side padding */
         display: flex;
         flex-wrap: nowrap;
         justify-content: center;
@@ -1334,8 +1334,8 @@ p {
     }
     
     .main-nav a {
-        font-size: 0.5rem;
-        padding: 8px 10px 12px 10px;
+        font-size: 0.38rem; /* Much smaller - was 0.5rem */
+        padding: 6px 5px 8px 5px; /* Much tighter padding */
         flex: 0 0 auto;
         text-align: center;
         white-space: nowrap;
@@ -1344,6 +1344,8 @@ p {
     /* Show nav separators on mobile */
     .nav-separator {
         display: inline;
+        font-size: 0.38rem; /* Match button size */
+        padding: 0 2px; /* Very tight spacing */
     }
     
     /* All other fonts 25% smaller */
