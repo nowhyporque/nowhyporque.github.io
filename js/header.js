@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="${basePath}index.html#updates">Updates</a>
                 <a href="${basePath}index.html#projects">Projects</a>
                 <a href="${basePath}index.html#media">Media</a>
+                <a href="${basePath}photography.html">Photography</a>
                 <a href="${basePath}Resumev.pdf?v=2" target="_blank">Resume</a>
             </nav>
         </header>
