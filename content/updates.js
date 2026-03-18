@@ -19,7 +19,7 @@ function renderUpdates() {
     const container = document.querySelector('.updates-scroll-container');
     if (!container) return;
 
-    container.innerHTML = updatesData.map(update => `
+    container.innerHTML =  updatesData.map(update => `
         <div class="update-item">
             <div class="update-date">${update.date}</div>
             <h3>${update.title}</h3>
