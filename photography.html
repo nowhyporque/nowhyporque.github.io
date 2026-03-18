@@ -17,10 +17,11 @@
 
         .photo-gallery-title {
             font-family: 'Press Start 2P', monospace;
-            font-size: 2rem;
+            font-size: 1.4rem; /* Was 2rem, now 30% smaller */
             color: white;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px; /* Increased space below to move it higher visually */
+            margin-top: 20px; /* Less space above */
         }
 
         .photo-grid {
@@ -33,12 +34,15 @@
         .photo-item {
             position: relative;
             width: 100%;
-            padding-bottom: 100%; /* Square aspect ratio */
             overflow: hidden;
             background: #1a1a1a;
             border: 2px solid #333;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px; /* Minimum height for layout stability */
         }
 
         .photo-item:hover {
@@ -48,12 +52,9 @@
         }
 
         .photo-item img {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto; /* Auto height to preserve aspect ratio */
+            object-fit: contain; /* Show full image, not cropped */
             transition: transform 0.3s ease;
         }
 
@@ -66,7 +67,7 @@
             justify-content: center;
             align-items: center;
             gap: 15px;
-            margin-top: 50px;
+            margin-top: 70px; /* Was 50px, now lower */
         }
 
         .pagination button,
@@ -75,8 +76,8 @@
             background: linear-gradient(45deg, #ff6600, #ff8800);
             color: white;
             border: none;
-            padding: 12px 20px;
-            font-size: 0.7rem;
+            padding: 7px 12px; /* Was 12px 20px, now 40% smaller */
+            font-size: 0.42rem; /* Was 0.7rem, now 40% smaller */
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -96,7 +97,7 @@
         .pagination .page-number {
             background: #1a1a1a;
             border: 2px solid #ff6600;
-            padding: 10px 18px;
+            padding: 5px 10px; /* Adjusted for 40% smaller */
             cursor: default;
         }
 
