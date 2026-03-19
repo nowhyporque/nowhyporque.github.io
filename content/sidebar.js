@@ -12,7 +12,7 @@ const sidebarData = {
         title: "IT",
         author: "Stephen King",
         coverUrl: "https://covers.openlibrary.org/b/id/15140681-M.jpg",
-        currentPage: 76,
+        currentPage: 84,
         bookLink: "https://openlibrary.org/works/OL81613W/It?edition=key%3A/books/OL7572658M"
     },
     

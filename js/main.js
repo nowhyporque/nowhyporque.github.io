@@ -13,19 +13,41 @@ document.addEventListener('DOMContentLoaded', function() {
     updateNYCTime();
     setInterval(updateNYCTime, 1000);
 
-    // Simple smooth scrolling
+    // Smooth scrolling with 25px offset for anchor links ON THIS PAGE
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
+            
+            // Only handle scroll if target exists on current page
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                e.preventDefault();
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = targetPosition - 25; // 25px space from top
+
+                // Always smooth scroll when target exists
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             }
+            // If target doesn't exist, let browser navigate normally
         });
     });
+
+    // Handle landing on page with hash anchor (instant, no stutter)
+    if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = targetPosition - 25; // 25px space from top
+            
+            // Instant scroll - no delay, no animation
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'auto'
+            });
+        }
+    }
 
     // Updates scroll detection
     const updatesContainer = document.querySelector('.updates-scroll-container');

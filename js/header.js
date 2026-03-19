@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const isProjectPage = window.location.pathname.includes('/projects/');
     const basePath = isProjectPage ? '../' : '';
     
+    // Check if we're on the homepage to use # or index.html#
+    const isHomepage = window.location.pathname === '/' || 
+                       window.location.pathname === '/index.html' || 
+                       window.location.pathname.endsWith('/');
+    const hashPrefix = isHomepage ? '#' : `${basePath}index.html#`;
+    
     const headerHTML = `
         <header class="main-header">
             <div class="header-info">
@@ -16,11 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 </a>
             </div>
             <nav class="main-nav">
-                <a href="${basePath}index.html#updates">Updates</a>
+                <a href="${hashPrefix}updates">Updates</a>
                 <span class="nav-separator">|</span>
-                <a href="${basePath}index.html#projects">Projects</a>
+                <a href="${hashPrefix}projects">Projects</a>
                 <span class="nav-separator">|</span>
-                <a href="${basePath}index.html#media">Media</a>
+                <a href="${basePath}blog.html">Blog</a>
+                <span class="nav-separator">|</span>
+                <a href="${hashPrefix}media">Media</a>
                 <span class="nav-separator">|</span>
                 <a href="${basePath}photography.html">Photography</a>
                 <span class="nav-separator">|</span>

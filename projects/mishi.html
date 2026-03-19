@@ -8,154 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        /* Project page specific styles */
-        .project-hero {
-            background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
-            padding: 60px 40px;
-            border-bottom: 3px solid;
-            border-image: linear-gradient(90deg, #ff0000, #ff6600, #ffff00, #00ff00) 1;
-        }
-
-        .project-hero h1 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 2.5rem;
-            color: #ff6600;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .project-meta {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .project-status-badge {
-            font-family: 'DotGothic16', monospace;
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6600, #ff8800);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .project-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 40px;
-        }
-
-        .project-section {
-            margin-bottom: 60px;
-        }
-
-        .project-section h2 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 1.5rem;
-            color: #e6edf3;
-            margin-bottom: 30px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .project-section h2::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 35px;
-            background: linear-gradient(45deg, #ff6600, #ffff00);
-            border-radius: 2px;
-        }
-
-        .project-section p {
-            font-family: 'DotGothic16', monospace;
-            color: #b1bac4;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        .project-section ul {
-            font-family: 'DotGothic16', monospace;
-            color: #b1bac4;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            margin-left: 30px;
-            margin-bottom: 20px;
-        }
-
-        .project-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .tech-badge {
-            font-family: 'DotGothic16', monospace;
-            background: linear-gradient(45deg, #f0f0f0, #f8f8f8);
-            color: #555;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            border: 1px solid #e0e0e0;
-            transition: all 0.3s ease;
-        }
-
-        .tech-badge:hover {
-            background: linear-gradient(45deg, #ffff00, #ffcc00);
-            color: #333;
-            border-color: #ff6600;
-            transform: translateY(-2px);
-        }
-
-        .back-link {
-            font-family: 'Press Start 2P', monospace;
-            display: inline-block;
-            color: #ff6600;
-            text-decoration: none;
-            font-size: 0.8rem;
-            margin-bottom: 40px;
-            transition: all 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: #ff0000;
-            text-decoration: underline;
-        }
-
-        .external-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .external-links a {
-            font-family: 'Press Start 2P', monospace;
-            color: white;
-            background: linear-gradient(45deg, #ff6600, #ff8800);
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            transition: all 0.3s ease;
-        }
-
-        .external-links a:hover {
-            background: linear-gradient(45deg, #ff0000, #ff6600);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 102, 0, 0.4);
-        }
-    </style>
 </head>
 <body>
     <!-- Header and Legal Window loaded by header.js -->
@@ -167,61 +19,84 @@
             
             <div style="margin-bottom: 40px;">
                 <p style="font-family: 'DotGothic16', monospace; color: #b1bac4; font-size: 0.9rem; margin-bottom: 10px;">Status: Active Development</p>
-                <h1 style="font-family: 'Press Start 2P', monospace; font-size: 2.5rem; color: white; margin-bottom: 40px;">MISHI</h1>
-            </div>
-
-            <div class="project-section">
-                <h2>Overview</h2>
-                <p>MISHI is a full-stack web application designed to help track and foster stray cats. Built with React and Firebase, it provides a comprehensive platform for cat lovers and rescue organizations to collaborate on helping stray animals find homes.</p>
-                <p>The application integrates Google Maps API for location tracking, allowing users to pin exact locations where stray cats are spotted. With role-based authentication, different user types can access features appropriate to their needs—from casual observers to active rescue coordinators.</p>
-            </div>
-
-            <div class="project-section">
-                <h2>Key Features</h2>
-                <ul>
-                    <li><strong>Interactive Map Integration:</strong> Google Maps API for precise location pinning and visualization of stray cat sightings</li>
-                    <li><strong>Role-Based Authentication:</strong> OAuth-enabled account management with different permission levels</li>
-                    <li><strong>Real-Time Updates:</strong> Firebase Firestore for instant data synchronization across all users</li>
-                    <li><strong>Resource Sharing:</strong> Community-driven platform for sharing food, shelter, and adoption resources</li>
-                    <li><strong>Secure Data Management:</strong> Firestore security rules ensuring data privacy and integrity</li>
-                    <li><strong>Responsive Design:</strong> Works seamlessly across desktop and mobile devices</li>
-                </ul>
-            </div>
-
-            <div class="project-section">
-                <h2>Technology Stack</h2>
-                <div class="tech-stack">
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">Firebase</span>
-                    <span class="tech-badge">Firestore</span>
-                    <span class="tech-badge">Google Maps API</span>
-                    <span class="tech-badge">OAuth 2.0</span>
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">CSS3</span>
+                <h1 style="font-family: 'Press Start 2P', monospace; font-size: 2.5rem; color: white; margin-bottom: 20px;">MISHI</h1>
+                
+                <div class="external-links">
+                    <a href="https://github.com/nowhyporque/mishi" target="_blank">View on GitHub</a>
+                    <a href="https://drive.google.com/drive/folders/1JZfPnCouUJPcrgI3oAvu_pgUBVue3_J3" target="_blank">View Demo</a>
                 </div>
             </div>
 
-            <div class="project-section">
-                <h2>Development Process</h2>
-                <p>MISHI started as a passion project to address a real community need. The development process involved:</p>
-                <ul>
-                    <li>Architecting a scalable database structure in Firestore</li>
-                    <li>Implementing secure authentication flows with OAuth</li>
-                    <li>Integrating and optimizing Google Maps API for performance</li>
-                    <li>Designing an intuitive user interface for both technical and non-technical users</li>
-                    <li>Writing comprehensive Firestore security rules to protect user data</li>
-                    <li>Continuous iteration based on user feedback and testing</li>
-                </ul>
+            <div class="project-sections-grid">
+                <!-- COLUMN 1: Overview, Vision, Tech, Status -->
+                <div class="project-section">
+                    <h2>Overview</h2>
+                    <p>MISHI is a full-stack web application designed to help track and foster stray cats. Built with React and Firebase, it provides a comprehensive platform for cat lovers and rescue organizations to collaborate on helping stray animals find homes.</p>
+                    <p>The application integrates Google Maps API for location tracking, allowing users to pin exact locations where stray cats are spotted. With role-based authentication, different user types can access features appropriate to their needs—from casual observers to active rescue coordinators.</p>
+                </div>
+
+                <div class="project-section">
+                    <h2>Project Vision</h2>
+                    <p>MISHI aims to create a centralized, community-driven ecosystem for stray cat rescue and adoption. The vision is to connect compassionate individuals, rescue organizations, and potential adopters through technology, making it easier to track, care for, and find homes for stray cats in need.</p>
+                    <p>By providing real-time location data, resource coordination, and seamless communication tools, MISHI empowers communities to take collective action in addressing the stray cat population humanely and effectively.</p>
+                </div>
+
+                <div class="project-section">
+                    <h2>Technology Stack</h2>
+                    <div class="tech-stack">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Firebase</span>
+                        <span class="tech-badge">Firestore</span>
+                        <span class="tech-badge">Google Maps API</span>
+                        <span class="tech-badge">OAuth 2.0</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">CSS3</span>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h2>Current Status</h2>
+                    <p>MISHI is functionally complete and serves its core purpose of tracking and fostering stray cats. While I'm currently focused on other projects, I may revisit MISHI in the future to add new features or improvements as needed. The codebase is stable and the application is fully operational.</p>
+                </div>
+
+                <!-- COLUMN 2: Features, Process, Significance -->
+                <div class="project-section">
+                    <h2>Key Features</h2>
+                    <ul>
+                        <li><strong>Interactive Map Integration:</strong> Google Maps API for precise location pinning and visualization of stray cat sightings</li>
+                        <li><strong>Role-Based Authentication:</strong> OAuth-enabled account management with different permission levels</li>
+                        <li><strong>Real-Time Updates:</strong> Firebase Firestore for instant data synchronization across all users</li>
+                        <li><strong>Resource Sharing:</strong> Community-driven platform for sharing food, shelter, and adoption resources</li>
+                        <li><strong>Secure Data Management:</strong> Firestore security rules ensuring data privacy and integrity</li>
+                        <li><strong>Responsive Design:</strong> Works seamlessly across desktop and mobile devices</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Development Process</h2>
+                    <p>MISHI started as a passion project to address a real community need. The development process involved:</p>
+                    <ul>
+                        <li>Architecting a scalable database structure in Firestore</li>
+                        <li>Implementing secure authentication flows with OAuth</li>
+                        <li>Integrating and optimizing Google Maps API for performance</li>
+                        <li>Designing an intuitive user interface for both technical and non-technical users</li>
+                        <li>Writing comprehensive Firestore security rules to protect user data</li>
+                        <li>Continuous iteration based on user feedback and testing</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h2>Project Significance</h2>
+                    <p>MISHI represents my first major full-stack project combining real-time data synchronization, geolocation services, and role-based authentication. It taught me valuable lessons about working with cloud platforms, designing scalable database architectures, and building applications that serve real community needs.</p>
+                    <p>Beyond the technical skills, MISHI demonstrated the power of technology to create positive social impact. Seeing the platform help connect rescuers with stray cats in need reinforced my belief that software development can be a force for good in the world.</p>
+                </div>
             </div>
 
-            <div class="project-section">
-                <h2>Current Status</h2>
-                <p>MISHI is functionally complete and serves its core purpose of tracking and fostering stray cats. While I'm currently focused on other projects, I may revisit MISHI in the future to add new features or improvements as needed. The codebase is stable and the application is fully operational.</p>
-            </div>
-
-            <div class="external-links">
-                <a href="https://github.com/nowhyporque/mishi" target="_blank">View on GitHub</a>
-                <a href="https://drive.google.com/drive/folders/1JZfPnCouUJPcrgI3oAvu_pgUBVue3_J3" target="_blank">View Demo</a>
+            <div class="project-section" style="margin-bottom: 60px;">
+                <h2>Related Blog Posts</h2>
+                <div id="projectBlogContainer">
+                    <!-- Blog posts tagged with "mishi" will be loaded here -->
+                </div>
             </div>
         </div>
     </div>
@@ -229,5 +104,12 @@
     <!-- Load JavaScript -->
     <script src="../js/header.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../content/blog.js"></script>
+    <script>
+        // Load blog posts tagged with this project
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProjectBlog('mishi');
+        });
+    </script>
 </body>
 </html>
