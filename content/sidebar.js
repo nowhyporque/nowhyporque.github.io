@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Mar 16 - Mar 22",
-        title: "LIBERATION - Outkast",
-        youtubeId: "iIreOrdYvLM",
+        dateRange: "Mar 23 - Mar 29",
+        title: "Instant Crush (feat. Julian Casablancas) - Daft Punk",
+        youtubeId: "khnokW3Mw24",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
@@ -12,7 +12,7 @@ const sidebarData = {
         title: "IT",
         author: "Stephen King",
         coverUrl: "https://covers.openlibrary.org/b/id/15140681-M.jpg",
-        currentPage: 84,
+        currentPage: 76,
         bookLink: "https://openlibrary.org/works/OL81613W/It?edition=key%3A/books/OL7572658M"
     },
     

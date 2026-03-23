@@ -88,7 +88,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-        
-        updatesContainer.dispatchEvent(new Event('scroll'));
     }
 });
