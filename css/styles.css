@@ -332,7 +332,7 @@ body {
 
 .main-nav {
     display: flex;
-    gap: 165px;
+    gap: 100px;
     justify-content: center;
     flex-wrap: wrap;
     position: absolute;

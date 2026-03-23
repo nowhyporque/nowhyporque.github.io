@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const headerHTML = `
         <header class="main-header">
             <div class="header-info">
-                <div class="nyc-time" id="nycTime"></div>
+                <div class="nyc-time" id="nycTime">March 19, 2026 NYC 00:00:00</div>
                 <button class="copyright-btn" id="copyrightBtn">©</button>
             </div>
             <div class="title-container">

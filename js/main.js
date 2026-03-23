@@ -1,11 +1,21 @@
-// NYC Time Clock
+// NYC Time Clock with Date
 function updateNYCTime() {
     const now = new Date();
     const nycTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+    
+    // Get date
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                    'July', 'August', 'September', 'October', 'November', 'December'];
+    const month = months[nycTime.getMonth()];
+    const day = nycTime.getDate();
+    const year = nycTime.getFullYear();
+    
+    // Get time
     const hours = nycTime.getHours().toString().padStart(2, '0');
     const minutes = nycTime.getMinutes().toString().padStart(2, '0');
     const seconds = nycTime.getSeconds().toString().padStart(2, '0');
-    document.getElementById('nycTime').textContent = `NYC ${hours}:${minutes}:${seconds}`;
+    
+    document.getElementById('nycTime').textContent = `${month} ${day}, ${year} | NYC | ${hours}:${minutes}:${seconds}`;
 }
 
 // Start clock on page load
