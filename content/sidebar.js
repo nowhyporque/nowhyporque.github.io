@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Mar 23 - Mar 29",
-        title: "Instant Crush (feat. Julian Casablancas) - Daft Punk",
-        youtubeId: "khnokW3Mw24",
+        dateRange: "Mar 30 - Apr 5",
+        title: "Pink Matter - Frank Ocean",
+        youtubeId: "uaLV003llhY",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
