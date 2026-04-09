@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Mar 30 - Apr 5",
-        title: "Pink Matter - Frank Ocean",
-        youtubeId: "uaLV003llhY",
+        dateRange: "Apr 6 - Apr 12",
+        title: "I Get Out (Live) - Ms. Lauryn Hill",
+        youtubeId: "Ok0nxA50pLM",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
