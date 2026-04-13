@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Apr 6 - Apr 12",
-        title: "I Get Out (Live) - Ms. Lauryn Hill",
-        youtubeId: "Ok0nxA50pLM",
+        dateRange: "Apr 13 - Apr 19",
+        title: "Selfless - The Strokes",
+        youtubeId: "1-W6whvn8Bs",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
