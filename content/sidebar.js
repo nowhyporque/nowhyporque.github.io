@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Apr 13 - Apr 19",
-        title: "Selfless - The Strokes",
-        youtubeId: "1-W6whvn8Bs",
+        dateRange: "Apr 20 - Apr 26",
+        title: "Ex Factor - Ms. Lauryn Hill",
+        youtubeId: "cE-bnWqLqxE",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
