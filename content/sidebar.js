@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Apr 20 - Apr 26",
-        title: "Ex Factor - Ms. Lauryn Hill",
-        youtubeId: "cE-bnWqLqxE",
+        dateRange: "May 4 - May 10",
+        title: "Taken for a Fool - The Strokes",
+        youtubeId: "0U_jGVEKr9s",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
