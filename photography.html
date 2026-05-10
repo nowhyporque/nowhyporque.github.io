@@ -8,6 +8,61 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Lightbox Navigation Arrows */
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Press Start 2P', monospace;
+            font-size: 4rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 102, 0, 0.5);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+
+        .lightbox-prev {
+            left: 40px;
+        }
+
+        .lightbox-next {
+            right: 40px;
+        }
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: rgba(255, 102, 0, 0.8);
+            border-color: #ff6600;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .lightbox-prev,
+            .lightbox-next {
+                width: 60px;
+                height: 60px;
+                font-size: 3rem;
+            }
+            
+            .lightbox-prev {
+                left: 20px;
+            }
+            
+            .lightbox-next {
+                right: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header and Legal Window loaded by header.js -->
@@ -29,6 +84,8 @@
     <!-- Lightbox for full-size view -->
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" id="lightboxClose">×</button>
+        <button class="lightbox-prev" id="lightboxPrev">‹</button>
+        <button class="lightbox-next" id="lightboxNext">›</button>
         <img src="" alt="Full size photo" id="lightboxImg">
     </div>
 
@@ -44,6 +101,7 @@
         let currentPage = 1;
         const photosPerPage = 9;
         let photosLoaded = false;
+        let currentLightboxIndex = 0;
 
         // Auto-detect all photos by trying to load them
         async function detectPhotos() {
@@ -109,11 +167,14 @@
             const photosToShow = allPhotos.slice(startIndex, endIndex);
 
             const photoGrid = document.getElementById('photoGrid');
-            photoGrid.innerHTML = photosToShow.map(photo => `
-                <div class="photo-item" onclick="openLightbox('photos/${photo}')">
-                    <img src="photos/${photo}" alt="Photography">
-                </div>
-            `).join('');
+            photoGrid.innerHTML = photosToShow.map((photo, index) => {
+                const actualIndex = startIndex + index;
+                return `
+                    <div class="photo-item" onclick="openLightbox(${actualIndex})">
+                        <img src="photos/${photo}" alt="Photography">
+                    </div>
+                `;
+            }).join('');
         }
 
         function renderPagination() {
@@ -155,11 +216,46 @@
         }
 
         // Lightbox functionality
-        function openLightbox(photoSrc) {
-            const lightbox = document.getElementById('lightbox');
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightboxImage();
+            document.getElementById('lightbox').classList.add('active');
+            updateLightboxButtons();
+        }
+
+        function updateLightboxImage() {
             const lightboxImg = document.getElementById('lightboxImg');
-            lightboxImg.src = photoSrc;
-            lightbox.classList.add('active');
+            lightboxImg.src = `photos/${allPhotos[currentLightboxIndex]}`;
+        }
+
+        function updateLightboxButtons() {
+            const prevBtn = document.getElementById('lightboxPrev');
+            const nextBtn = document.getElementById('lightboxNext');
+            
+            // Hide/show buttons based on position
+            if (currentLightboxIndex === 0) {
+                prevBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'block';
+            }
+            
+            if (currentLightboxIndex === allPhotos.length - 1) {
+                nextBtn.style.display = 'none';
+            } else {
+                nextBtn.style.display = 'block';
+            }
+        }
+
+        function navigateLightbox(direction) {
+            if (direction === 'prev' && currentLightboxIndex > 0) {
+                currentLightboxIndex--;
+                updateLightboxImage();
+                updateLightboxButtons();
+            } else if (direction === 'next' && currentLightboxIndex < allPhotos.length - 1) {
+                currentLightboxIndex++;
+                updateLightboxImage();
+                updateLightboxButtons();
+            }
         }
 
         function closeLightbox() {
@@ -169,9 +265,26 @@
 
         // Event listeners
         document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', () => navigateLightbox('prev'));
+        document.getElementById('lightboxNext').addEventListener('click', () => navigateLightbox('next'));
+        
         document.getElementById('lightbox').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'ArrowLeft') {
+                    navigateLightbox('prev');
+                } else if (e.key === 'ArrowRight') {
+                    navigateLightbox('next');
+                } else if (e.key === 'Escape') {
+                    closeLightbox();
+                }
             }
         });
 
