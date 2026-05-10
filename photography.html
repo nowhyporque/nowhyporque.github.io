@@ -16,12 +16,12 @@
             top: 50%;
             transform: translateY(-50%);
             font-family: 'Press Start 2P', monospace;
-            font-size: 4rem;
-            color: white;
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(255, 102, 0, 0.5);
-            width: 80px;
-            height: 80px;
+            font-size: 2rem; /* 50% smaller - was 4rem */
+            color: rgba(255, 255, 255, 0.7);
+            background: transparent; /* No background */
+            border: none; /* No orange box */
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -40,26 +40,25 @@
 
         .lightbox-prev:hover,
         .lightbox-next:hover {
-            background: rgba(255, 102, 0, 0.8);
-            border-color: #ff6600;
-            transform: translateY(-50%) scale(1.1);
+            color: #ff6600; /* Just change arrow color on hover */
+            transform: translateY(-50%) scale(1.2);
         }
 
         /* Mobile responsive */
         @media (max-width: 768px) {
             .lightbox-prev,
             .lightbox-next {
-                width: 60px;
-                height: 60px;
-                font-size: 3rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
             }
             
             .lightbox-prev {
-                left: 20px;
+                left: 10px;
             }
             
             .lightbox-next {
-                right: 20px;
+                right: 10px;
             }
         }
     </style>
@@ -102,15 +101,17 @@
         const photosPerPage = 9;
         let photosLoaded = false;
         let currentLightboxIndex = 0;
+        let totalPhotosFound = 0;
 
-        // Auto-detect all photos by trying to load them
+        // Faster detection - check in batches of 10, stop early if nothing found
         async function detectPhotos() {
             const photos = [];
             let photoNumber = 1;
-            const maxPhotosToCheck = 500; // Safety limit
+            const maxPhotosToCheck = 500;
+            const batchSize = 10;
+            let consecutiveNotFound = 0;
             
-            // Try loading photos starting from photo1.jpg or photo1.JPG
-            while (photoNumber <= maxPhotosToCheck) {
+            while (photoNumber <= maxPhotosToCheck && consecutiveNotFound < batchSize) {
                 let foundPhoto = null;
                 
                 // Try .JPG first (uppercase)
@@ -123,6 +124,7 @@
                 
                 if (existsJPG) {
                     foundPhoto = `photo${photoNumber}.JPG`;
+                    consecutiveNotFound = 0; // Reset counter
                 } else {
                     // Try .jpg (lowercase)
                     const imgJpg = new Image();
@@ -134,17 +136,20 @@
                     
                     if (existsJpg) {
                         foundPhoto = `photo${photoNumber}.jpg`;
+                        consecutiveNotFound = 0; // Reset counter
+                    } else {
+                        consecutiveNotFound++;
                     }
                 }
                 
                 if (foundPhoto) {
                     photos.push(foundPhoto);
-                    photoNumber++;
-                } else {
-                    break; // Stop when we find a photo that doesn't exist
                 }
+                
+                photoNumber++;
             }
             
+            totalPhotosFound = photos.length;
             // Reverse array so newest (highest number) is first
             return photos.reverse();
         }
