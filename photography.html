@@ -235,10 +235,24 @@
                 currentLightboxIndex--;
                 updateLightboxImage();
                 updateLightboxButtons();
+                updateCurrentPage();
             } else if (direction === 'next' && currentLightboxIndex < allPhotos.length - 1) {
                 currentLightboxIndex++;
                 updateLightboxImage();
                 updateLightboxButtons();
+                updateCurrentPage();
+            }
+        }
+
+        function updateCurrentPage() {
+            // Calculate which page the current photo is on
+            const photoPage = Math.floor(currentLightboxIndex / photosPerPage) + 1;
+            
+            // If we've moved to a different page, update it
+            if (photoPage !== currentPage) {
+                currentPage = photoPage;
+                renderPhotos();
+                renderPagination();
             }
         }
 
