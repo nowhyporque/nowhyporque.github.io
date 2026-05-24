@@ -134,7 +134,7 @@
             'photo4.JPG',
             'photo3.JPG',
             'photo2.JPG',
-            'photo1.jpg'
+            'photo1.JPG'  // Changed from .jpg to .JPG
         ];
 
         // ============================================
@@ -194,6 +194,12 @@
             if (page < 1 || page > totalPages) return;
             
             currentPage = page;
+            
+            // Save page to URL so it persists on reload
+            const url = new URL(window.location);
+            url.searchParams.set('page', page);
+            window.history.replaceState({}, '', url);
+            
             renderPhotos();
             renderPagination();
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -251,6 +257,12 @@
             // If we've moved to a different page, update it
             if (photoPage !== currentPage) {
                 currentPage = photoPage;
+                
+                // Save page to URL
+                const url = new URL(window.location);
+                url.searchParams.set('page', photoPage);
+                window.history.replaceState({}, '', url);
+                
                 renderPhotos();
                 renderPagination();
             }
@@ -288,6 +300,17 @@
 
         // Initial render - INSTANT!
         document.addEventListener('DOMContentLoaded', function() {
+            // Check if there's a page parameter in the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const pageParam = urlParams.get('page');
+            if (pageParam) {
+                const page = parseInt(pageParam);
+                const totalPages = Math.ceil(allPhotos.length / photosPerPage);
+                if (page >= 1 && page <= totalPages) {
+                    currentPage = page;
+                }
+            }
+            
             renderPhotos();
             renderPagination();
         });
