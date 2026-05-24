@@ -16,10 +16,10 @@
             top: 50%;
             transform: translateY(-50%);
             font-family: 'Press Start 2P', monospace;
-            font-size: 2rem; /* 50% smaller - was 4rem */
+            font-size: 2rem;
             color: rgba(255, 255, 255, 0.7);
-            background: transparent; /* No background */
-            border: none; /* No orange box */
+            background: transparent;
+            border: none;
             width: 60px;
             height: 60px;
             display: flex;
@@ -40,7 +40,7 @@
 
         .lightbox-prev:hover,
         .lightbox-next:hover {
-            color: #ff6600; /* Just change arrow color on hover */
+            color: #ff6600;
             transform: translateY(-50%) scale(1.2);
         }
 
@@ -92,79 +92,58 @@
     <script src="js/header.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Photo Gallery Data
-        // FULLY AUTOMATIC: Just upload photos named photo1.jpg, photo2.jpg, photo3.jpg, etc.
-        // The code will automatically find the highest number and display newest first
+        // ============================================
+        // PHOTO LIST - Update this when adding photos
+        // ============================================
+        // Just add new photos to the TOP of this array
+        // Newest photos first!
         
-        let allPhotos = [];
+        const allPhotos = [
+            'photo36.JPG',
+            'photo35.JPG',
+            'photo34.JPG',
+            'photo33.JPG',
+            'photo32.JPG',
+            'photo31.JPG',
+            'photo30.JPG',
+            'photo29.JPG',
+            'photo28.JPG',
+            'photo27.JPG',
+            'photo26.JPG',
+            'photo25.JPG',
+            'photo24.JPG',
+            'photo23.JPG',
+            'photo22.JPG',
+            'photo21.JPG',
+            'photo20.JPG',
+            'photo19.JPG',
+            'photo18.JPG',
+            'photo17.JPG',
+            'photo16.JPG',
+            'photo15.JPG',
+            'photo14.JPG',
+            'photo13.JPG',
+            'photo12.JPG',
+            'photo11.JPG',
+            'photo10.JPG',
+            'photo9.JPG',
+            'photo8.JPG',
+            'photo7.JPG',
+            'photo6.JPG',
+            'photo5.JPG',
+            'photo4.JPG',
+            'photo3.JPG',
+            'photo2.JPG',
+            'photo1.jpg'
+        ];
+
+        // ============================================
+        // Gallery Logic - No changes needed below
+        // ============================================
+        
         let currentPage = 1;
         const photosPerPage = 9;
-        let photosLoaded = false;
         let currentLightboxIndex = 0;
-        let totalPhotosFound = 0;
-
-        // Faster detection - check in batches of 10, stop early if nothing found
-        async function detectPhotos() {
-            const photos = [];
-            let photoNumber = 1;
-            const maxPhotosToCheck = 500;
-            const batchSize = 10;
-            let consecutiveNotFound = 0;
-            
-            while (photoNumber <= maxPhotosToCheck && consecutiveNotFound < batchSize) {
-                let foundPhoto = null;
-                
-                // Try .JPG first (uppercase)
-                const imgJPG = new Image();
-                const existsJPG = await new Promise((resolve) => {
-                    imgJPG.onload = () => resolve(true);
-                    imgJPG.onerror = () => resolve(false);
-                    imgJPG.src = `photos/photo${photoNumber}.JPG`;
-                });
-                
-                if (existsJPG) {
-                    foundPhoto = `photo${photoNumber}.JPG`;
-                    consecutiveNotFound = 0; // Reset counter
-                } else {
-                    // Try .jpg (lowercase)
-                    const imgJpg = new Image();
-                    const existsJpg = await new Promise((resolve) => {
-                        imgJpg.onload = () => resolve(true);
-                        imgJpg.onerror = () => resolve(false);
-                        imgJpg.src = `photos/photo${photoNumber}.jpg`;
-                    });
-                    
-                    if (existsJpg) {
-                        foundPhoto = `photo${photoNumber}.jpg`;
-                        consecutiveNotFound = 0; // Reset counter
-                    } else {
-                        consecutiveNotFound++;
-                    }
-                }
-                
-                if (foundPhoto) {
-                    photos.push(foundPhoto);
-                }
-                
-                photoNumber++;
-            }
-            
-            totalPhotosFound = photos.length;
-            // Reverse array so newest (highest number) is first
-            return photos.reverse();
-        }
-
-        async function initGallery() {
-            allPhotos = await detectPhotos();
-            if (allPhotos.length === 0) {
-                document.getElementById('photoGrid').innerHTML = '<p style="color: white; text-align: center; font-family: DotGothic16;">No photos found. Upload photos to the photos/ folder named photo1.jpg, photo2.jpg, etc.</p>';
-                document.getElementById('pagination').innerHTML = '';
-                return;
-            }
-            photosLoaded = true;
-            renderPhotos();
-            renderPagination();
-        }
 
         function renderPhotos() {
             const startIndex = (currentPage - 1) * photosPerPage;
@@ -176,7 +155,7 @@
                 const actualIndex = startIndex + index;
                 return `
                     <div class="photo-item" onclick="openLightbox(${actualIndex})">
-                        <img src="photos/${photo}" alt="Photography">
+                        <img src="photos/${photo}" alt="Photography" loading="lazy">
                     </div>
                 `;
             }).join('');
@@ -293,9 +272,10 @@
             }
         });
 
-        // Initial render
+        // Initial render - INSTANT!
         document.addEventListener('DOMContentLoaded', function() {
-            initGallery();
+            renderPhotos();
+            renderPagination();
         });
     </script>
 </body>
