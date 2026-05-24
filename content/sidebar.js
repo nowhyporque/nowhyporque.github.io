@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "May 4 - May 10",
-        title: "Taken for a Fool - The Strokes",
-        youtubeId: "0U_jGVEKr9s",
+        dateRange: "May 25 - May 31",
+        title: "Bad Decisions - The Strokes",
+        youtubeId: "5fbZTnZDvPA",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
