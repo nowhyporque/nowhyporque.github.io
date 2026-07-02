@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* Lightbox Navigation Arrows */
         .lightbox-prev,
         .lightbox-next {
             position: absolute;
@@ -30,13 +29,8 @@
             z-index: 10001;
         }
 
-        .lightbox-prev {
-            left: 40px;
-        }
-
-        .lightbox-next {
-            right: 40px;
-        }
+        .lightbox-prev { left: 40px; }
+        .lightbox-next { right: 40px; }
 
         .lightbox-prev:hover,
         .lightbox-next:hover {
@@ -44,7 +38,29 @@
             transform: translateY(-50%) scale(1.2);
         }
 
-        /* Mobile responsive */
+        .lightbox-meta {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 40px;
+            z-index: 10001;
+        }
+
+        .lightbox-meta span {
+            font-family: 'DotGothic16', monospace;
+            font-size: 0.85rem;
+            color: rgba(160, 160, 160, 0.85);
+            white-space: nowrap;
+        }
+
+        #lightboxImg {
+            max-height: 80vh;
+            max-width: 85%;
+            margin-bottom: 60px;
+        }
+
         @media (max-width: 768px) {
             .lightbox-prev,
             .lightbox-next {
@@ -52,287 +68,164 @@
                 height: 40px;
                 font-size: 1.5rem;
             }
-            
-            .lightbox-prev {
-                left: 10px;
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+
+            .lightbox-meta {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+                bottom: 15px;
+                width: 90%;
             }
-            
-            .lightbox-next {
-                right: 10px;
+
+            .lightbox-meta span {
+                font-size: 0.7rem;
+            }
+
+            #lightboxImg {
+                max-height: 75vh;
+                max-width: 90%;
+                margin-bottom: 70px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header and Legal Window loaded by header.js -->
 
     <div class="main-container">
         <div class="photo-gallery-container">
             <h1 class="photo-gallery-title">Photography</h1>
-            
-            <div class="photo-grid" id="photoGrid">
-                <!-- Photos will be loaded by JavaScript -->
-            </div>
-
-            <div class="pagination" id="pagination">
-                <!-- Pagination will be loaded by JavaScript -->
-            </div>
+            <div class="photo-grid" id="photoGrid"></div>
+            <div class="pagination" id="pagination"></div>
         </div>
     </div>
 
-    <!-- Lightbox for full-size view -->
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" id="lightboxClose">×</button>
         <button class="lightbox-prev" id="lightboxPrev">‹</button>
         <button class="lightbox-next" id="lightboxNext">›</button>
         <img src="" alt="Full size photo" id="lightboxImg">
+        <div class="lightbox-meta" id="lightboxMeta"></div>
     </div>
 
-    <!-- Load JavaScript -->
     <script src="js/header.js"></script>
     <script src="js/main.js"></script>
+    <script src="content/photos-data.js"></script>
     <script>
-        // ============================================
-        // PHOTO LIST - Update this when adding photos
-        // ============================================
-        // Just add new photos to the TOP of this array
-        // Newest photos first!
-        
-        const allPhotos = [
-            'photo58.JPG',
-            'photo57.JPG',
-            'photo56.JPG',
-            'photo55.JPG',
-            'photo54.JPG',
-            'photo53.JPG',
-            'photo52.JPG',
-            'photo51.JPG',
-            'photo50.JPG',
-            'photo49.JPG',
-            'photo48.JPG',
-            'photo47.JPG',
-            'photo46.JPG',
-            'photo45.JPG',
-            'photo44.JPG',
-            'photo43.JPG',
-            'photo42.JPG',
-            'photo41.JPG',
-            'photo40.JPG',
-            'photo39.JPG',
-            'photo38.JPG',
-            'photo37.JPG',
-            'photo36.JPG',
-            'photo35.JPG',
-            'photo34.JPG',
-            'photo33.JPG',
-            'photo32.JPG',
-            'photo31.JPG',
-            'photo30.JPG',
-            'photo29.JPG',
-            'photo28.JPG',
-            'photo27.JPG',
-            'photo26.JPG',
-            'photo25.JPG',
-            'photo24.JPG',
-            'photo23.JPG',
-            'photo22.JPG',
-            'photo21.JPG',
-            'photo20.JPG',
-            'photo19.JPG',
-            'photo18.JPG',
-            'photo17.JPG',
-            'photo16.JPG',
-            'photo15.JPG',
-            'photo14.JPG',
-            'photo13.JPG',
-            'photo12.JPG',
-            'photo11.JPG',
-            'photo10.JPG',
-            'photo9.JPG',
-            'photo8.JPG',
-            'photo7.JPG',
-            'photo6.JPG',
-            'photo5.JPG',
-            'photo4.JPG',
-            'photo3.JPG',
-            'photo2.JPG',
-            'photo1.JPG'  // Changed from .jpg to .JPG
-        ];
 
-        // ============================================
-        // Gallery Logic - No changes needed below
-        // ============================================
-        
         let currentPage = 1;
         const photosPerPage = 9;
         let currentLightboxIndex = 0;
 
         function renderPhotos() {
             const startIndex = (currentPage - 1) * photosPerPage;
-            const endIndex = startIndex + photosPerPage;
-            const photosToShow = allPhotos.slice(startIndex, endIndex);
+            const photosToShow = allPhotos.slice(startIndex, startIndex + photosPerPage);
 
-            const photoGrid = document.getElementById('photoGrid');
-            photoGrid.innerHTML = photosToShow.map((photo, index) => {
-                const actualIndex = startIndex + index;
-                return `
-                    <div class="photo-item" onclick="openLightbox(${actualIndex})">
-                        <img src="photos/${photo}" alt="Photography" loading="lazy">
-                    </div>
-                `;
-            }).join('');
+            document.getElementById('photoGrid').innerHTML = photosToShow.map((photo, index) => `
+                <div class="photo-item" onclick="openLightbox(${startIndex + index})">
+                    <img src="photos/${photo.file}" alt="Photography" loading="lazy">
+                </div>
+            `).join('');
         }
 
         function renderPagination() {
             const totalPages = Math.ceil(allPhotos.length / photosPerPage);
-            const pagination = document.getElementById('pagination');
-            
-            let paginationHTML = `
-                <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
-                    ← Prev
-                </button>
-            `;
-
-            // Show page numbers
+            let html = `<button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>← Prev</button>`;
             for (let i = 1; i <= totalPages; i++) {
-                paginationHTML += `
-                    <span class="page-number ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">
-                        ${i}
-                    </span>
-                `;
+                html += `<span class="page-number ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</span>`;
             }
-
-            paginationHTML += `
-                <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
-                    Next →
-                </button>
-            `;
-
-            pagination.innerHTML = paginationHTML;
+            html += `<button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next →</button>`;
+            document.getElementById('pagination').innerHTML = html;
         }
 
         function changePage(page) {
             const totalPages = Math.ceil(allPhotos.length / photosPerPage);
             if (page < 1 || page > totalPages) return;
-            
             currentPage = page;
-            
-            // Save page to URL so it persists on reload
             const url = new URL(window.location);
             url.searchParams.set('page', page);
             window.history.replaceState({}, '', url);
-            
             renderPhotos();
             renderPagination();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Lightbox functionality
         function openLightbox(index) {
             currentLightboxIndex = index;
             updateLightboxImage();
-            document.getElementById('lightbox').classList.add('active');
+            updateLightboxMeta();
             updateLightboxButtons();
+            document.getElementById('lightbox').classList.add('active');
         }
 
         function updateLightboxImage() {
-            const lightboxImg = document.getElementById('lightboxImg');
-            lightboxImg.src = `photos/${allPhotos[currentLightboxIndex]}`;
+            document.getElementById('lightboxImg').src = `photos/${allPhotos[currentLightboxIndex].file}`;
+        }
+
+        function updateLightboxMeta() {
+            const p = allPhotos[currentLightboxIndex];
+            const fields = [];
+            if (p.camera)   fields.push(`Camera: ${p.camera}`);
+            if (p.date)     fields.push(`Date: ${p.date}`);
+            if (p.location) fields.push(`Location: ${p.location}`);
+            if (p.edited)   fields.push(`Edited: ${p.edited}`);
+            if (p.notes)    fields.push(p.notes);
+            document.getElementById('lightboxMeta').innerHTML = fields.map(f => `<span>${f}</span>`).join('');
         }
 
         function updateLightboxButtons() {
-            const prevBtn = document.getElementById('lightboxPrev');
-            const nextBtn = document.getElementById('lightboxNext');
-            
-            // Hide/show buttons based on position
-            if (currentLightboxIndex === 0) {
-                prevBtn.style.display = 'none';
-            } else {
-                prevBtn.style.display = 'block';
-            }
-            
-            if (currentLightboxIndex === allPhotos.length - 1) {
-                nextBtn.style.display = 'none';
-            } else {
-                nextBtn.style.display = 'block';
-            }
+            document.getElementById('lightboxPrev').style.display = currentLightboxIndex === 0 ? 'none' : 'flex';
+            document.getElementById('lightboxNext').style.display = currentLightboxIndex === allPhotos.length - 1 ? 'none' : 'flex';
         }
 
         function navigateLightbox(direction) {
-            if (direction === 'prev' && currentLightboxIndex > 0) {
-                currentLightboxIndex--;
-                updateLightboxImage();
-                updateLightboxButtons();
-                updateCurrentPage();
-            } else if (direction === 'next' && currentLightboxIndex < allPhotos.length - 1) {
-                currentLightboxIndex++;
-                updateLightboxImage();
-                updateLightboxButtons();
-                updateCurrentPage();
-            }
+            if (direction === 'prev' && currentLightboxIndex > 0) currentLightboxIndex--;
+            else if (direction === 'next' && currentLightboxIndex < allPhotos.length - 1) currentLightboxIndex++;
+            else return;
+            updateLightboxImage();
+            updateLightboxMeta();
+            updateLightboxButtons();
+            updateCurrentPage();
         }
 
         function updateCurrentPage() {
-            // Calculate which page the current photo is on
             const photoPage = Math.floor(currentLightboxIndex / photosPerPage) + 1;
-            
-            // If we've moved to a different page, update it
             if (photoPage !== currentPage) {
                 currentPage = photoPage;
-                
-                // Save page to URL
                 const url = new URL(window.location);
                 url.searchParams.set('page', photoPage);
                 window.history.replaceState({}, '', url);
-                
                 renderPhotos();
                 renderPagination();
             }
         }
 
         function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
+            document.getElementById('lightbox').classList.remove('active');
         }
 
-        // Event listeners
         document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
         document.getElementById('lightboxPrev').addEventListener('click', () => navigateLightbox('prev'));
         document.getElementById('lightboxNext').addEventListener('click', () => navigateLightbox('next'));
-        
         document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLightbox();
-            }
+            if (e.target === this) closeLightbox();
         });
-
-        // Keyboard navigation
         document.addEventListener('keydown', function(e) {
-            const lightbox = document.getElementById('lightbox');
-            if (lightbox.classList.contains('active')) {
-                if (e.key === 'ArrowLeft') {
-                    navigateLightbox('prev');
-                } else if (e.key === 'ArrowRight') {
-                    navigateLightbox('next');
-                } else if (e.key === 'Escape') {
-                    closeLightbox();
-                }
-            }
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'ArrowLeft')  navigateLightbox('prev');
+            if (e.key === 'ArrowRight') navigateLightbox('next');
+            if (e.key === 'Escape')     closeLightbox();
         });
 
-        // Initial render - INSTANT!
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if there's a page parameter in the URL
             const urlParams = new URLSearchParams(window.location.search);
             const pageParam = urlParams.get('page');
             if (pageParam) {
                 const page = parseInt(pageParam);
                 const totalPages = Math.ceil(allPhotos.length / photosPerPage);
-                if (page >= 1 && page <= totalPages) {
-                    currentPage = page;
-                }
+                if (page >= 1 && page <= totalPages) currentPage = page;
             }
-            
             renderPhotos();
             renderPagination();
         });

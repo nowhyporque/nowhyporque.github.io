@@ -1,0 +1,71 @@
+// ============================================
+// PHOTO METADATA - Fill in info for each photo
+// ============================================
+// Fields:
+//   file     → filename (internal reference only, not shown publicly)
+//   camera   → camera or phone used
+//   date     → date photo was taken
+//   edited   → "Yes" or "No"
+//   location → where it was taken
+//   notes    → optional short note (or leave as "")
+
+const allPhotos = [
+    { file: 'photo58.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo57.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo56.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo55.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo54.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo53.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo52.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo51.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo50.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo49.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo48.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo47.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo46.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo45.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo44.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo43.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo42.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo41.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo40.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo39.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo38.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo37.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo36.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo35.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo34.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo33.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo32.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo31.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo30.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo29.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo28.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo27.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo26.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo25.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo24.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo23.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo22.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo21.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo20.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo19.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo18.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo17.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo16.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo15.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo14.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo13.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo12.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo11.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo10.JPG', camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo9.JPG',  camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo8.JPG',  camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo7.JPG',  camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo6.JPG',  camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo5.JPG',  camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo4.JPG',  camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo3.JPG',  camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo2.JPG',  camera: '', date: '', edited: '', location: '', notes: '' },
+    { file: 'photo1.JPG',  camera: '', date: '', edited: '', location: '', notes: '' },
+];
