@@ -46,15 +46,23 @@
         }
 
         /* ─── Every cell is the same fixed box ─── */
-        .photo-item {
+        .photo-item,
+        .photo-item:hover,
+        .photo-item:focus,
+        .photo-item.portrait,
+        .photo-item.landscape,
+        .photo-item.portrait:hover,
+        .photo-item.landscape:hover {
             background: transparent !important;
             border: none !important;
+            box-shadow: none !important;
             padding: 0 !important;
             min-height: unset !important;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            transform: none !important;
         }
 
         /* ─── Image inside the cell ─── */
@@ -68,16 +76,8 @@
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* ─── Hover glow: landscape ─── */
-        .photo-item.landscape:hover img {
-            border-color: #ff6600;
-            box-shadow:
-                0 0 8px  rgba(255,102,0,0.9),
-                0 0 20px rgba(255,102,0,0.5);
-        }
-
-        /* ─── Hover glow: portrait ─── */
-        .photo-item.portrait:hover img {
+        /* ─── Hover glow on the IMAGE only — always hugs the photo shape ─── */
+        .photo-item:hover img {
             border-color: #ff6600;
             box-shadow:
                 0 0 8px  rgba(255,102,0,0.9),
