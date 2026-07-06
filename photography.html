@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,13 +41,14 @@
         .photo-item {
             background: transparent !important;
             border: none !important;
-            padding: 10px !important;
-            margin: -10px !important;
+            padding: 0 !important;
             min-height: unset !important;
             break-inside: avoid;
-            margin-bottom: 20px !important;
+            margin-bottom: 30px;
             line-height: 0;
-            overflow: visible !important;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         .photo-item img {
@@ -62,13 +63,12 @@
 
         .photo-item:hover img {
             border-color: #ff6600;
-            box-shadow: 0 0 20px rgba(255, 102, 0, 0.6), 0 0 40px rgba(255, 102, 0, 0.3);
+            box-shadow: 0 0 8px rgba(255, 102, 0, 0.8), 0 0 15px rgba(255, 102, 0, 0.4);
         }
 
         #photoGrid {
             column-count: 3;
             column-gap: 30px;
-            overflow: visible;
         }
 
         .lightbox-meta {
@@ -258,274 +258,6 @@
                 const page = parseInt(pageParam);
                 const totalPages = Math.ceil(allPhotos.length / photosPerPage);
                 if (page >= 1 && page <= totalPages) currentPage = page;
-            }
-            renderPhotos();
-            renderPagination();
-        });
-    </script>
-</body>
-</html> -->
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography - The Eternal Tao</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <style>
-        .lightbox-prev,
-        .lightbox-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-family: 'Press Start 2P', monospace;
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.7);
-            background: transparent;
-            border: none;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10001;
-        }
-
-        .lightbox-prev { left: 40px; }
-        .lightbox-next { right: 40px; }
-
-        .lightbox-prev:hover,
-        .lightbox-next:hover {
-            color: #ff6600;
-            transform: translateY(-50%) scale(1.2);
-        }
-
-        .photo-item {
-            background: transparent !important;
-            border: none !important;
-            padding: 0 !important;
-            min-height: unset !important;
-            break-inside: avoid;
-            margin-bottom: 30px;
-            line-height: 0;
-            width: fit-content;
-        }
-
-        .photo-item img {
-            height: 250px;
-            width: auto;
-            max-width: 100%;
-            display: block;
-            border: 2px solid #333;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .photo-item:hover img {
-            border-color: #ff6600;
-            box-shadow: 0 0 8px rgba(255, 102, 0, 0.8), 0 0 15px rgba(255, 102, 0, 0.4);
-        }
-
-        #photoGrid {
-            column-count: 3;
-            column-gap: 30px;
-            text-align: center;
-        }
-
-        .lightbox-meta {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 40px;
-            z-index: 10001;
-        }
-
-        .lightbox-meta span {
-            font-family: 'DotGothic16', monospace;
-            font-size: 0.85rem;
-            color: rgba(160, 160, 160, 0.85);
-            white-space: nowrap;
-        }
-
-        #lightboxImg {
-            max-height: 80vh;
-            max-width: 85%;
-            margin-bottom: 60px;
-        }
-
-        @media (max-width: 768px) {
-            .lightbox-prev,
-            .lightbox-next {
-                width: 40px;
-                height: 40px;
-                font-size: 1.5rem;
-            }
-            .lightbox-prev { left: 10px; }
-            .lightbox-next { right: 10px; }
-
-            .lightbox-meta {
-                gap: 12px;
-                flex-wrap: wrap;
-                justify-content: center;
-                bottom: 15px;
-                width: 90%;
-            }
-
-            .lightbox-meta span {
-                font-size: 0.7rem;
-            }
-
-            #lightboxImg {
-                max-height: 75vh;
-                max-width: 90%;
-                margin-bottom: 70px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="main-container">
-        <div class="photo-gallery-container">
-            <h1 class="photo-gallery-title">Photography</h1>
-            <div class="photo-grid" id="photoGrid"></div>
-            <div class="pagination" id="pagination"></div>
-        </div>
-    </div>
-
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose">×</button>
-        <button class="lightbox-prev" id="lightboxPrev">‹</button>
-        <button class="lightbox-next" id="lightboxNext">›</button>
-        <img src="" alt="Full size photo" id="lightboxImg">
-        <div class="lightbox-meta" id="lightboxMeta"></div>
-    </div>
-
-    <script src="js/header.js"></script>
-    <script src="js/main.js"></script>
-    <script src="content/photos-data.js"></script>
-    <script>
-
-        let currentPage = 1;
-        const photosPerPage = 9;
-        let currentLightboxIndex = 0;
-
-        function renderPhotos() {
-            const startIndex = (currentPage - 1) * photosPerPage;
-            const photosToShow = allPhotos.slice(startIndex, startIndex + photosPerPage);
-
-            document.getElementById('photoGrid').innerHTML = photosToShow.map((photo, index) => `
-                <div class="photo-item" onclick="openLightbox(${startIndex + index})">
-                    <img src="photos/${photo.file}" alt="Photography" loading="lazy">
-                </div>
-            `).join('');
-        }
-
-        function renderPagination() {
-            const totalPages = Math.ceil(allPhotos.length / photosPerPage);
-            let html = `<button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>← Prev</button>`;
-            for (let i = 1; i <= totalPages; i++) {
-                html += `<span class="page-number ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</span>`;
-            }
-            html += `<button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next →</button>`;
-            document.getElementById('pagination').innerHTML = html;
-        }
-
-        function changePage(page) {
-            const totalPages = Math.ceil(allPhotos.length / photosPerPage);
-            if (page < 1 || page > totalPages) return;
-            currentPage = page;
-            const url = new URL(window.location);
-            url.searchParams.set('page', page);
-            window.history.replaceState({}, '', url);
-            renderPhotos();
-            renderPagination();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function openLightbox(index) {
-            currentLightboxIndex = index;
-            updateLightboxImage();
-            updateLightboxMeta();
-            updateLightboxButtons();
-            document.getElementById('lightbox').classList.add('active');
-        }
-
-        function updateLightboxImage() {
-            document.getElementById('lightboxImg').src = `photos/${allPhotos[currentLightboxIndex].file}`;
-        }
-
-        function updateLightboxMeta() {
-            const p = allPhotos[currentLightboxIndex];
-            const fields = [];
-            if (p.camera)   fields.push(`Camera: ${p.camera}`);
-            if (p.date)     fields.push(`Date: ${p.date}`);
-            if (p.location) fields.push(`Location: ${p.location}`);
-            if (p.edited)   fields.push(`Edited: ${p.edited}`);
-            if (p.notes)    fields.push(p.notes);
-            document.getElementById('lightboxMeta').innerHTML = fields.map(f => `<span>${f}</span>`).join('');
-        }
-
-        function updateLightboxButtons() {
-            document.getElementById('lightboxPrev').style.display = currentLightboxIndex === 0 ? 'none' : 'flex';
-            document.getElementById('lightboxNext').style.display = currentLightboxIndex === allPhotos.length - 1 ? 'none' : 'flex';
-        }
-
-        function navigateLightbox(direction) {
-            if (direction === 'prev' && currentLightboxIndex > 0) currentLightboxIndex--;
-            else if (direction === 'next' && currentLightboxIndex < allPhotos.length - 1) currentLightboxIndex++;
-            else return;
-            updateLightboxImage();
-            updateLightboxMeta();
-            updateLightboxButtons();
-            updateCurrentPage();
-        }
-
-        function updateCurrentPage() {
-            const photoPage = Math.floor(currentLightboxIndex / photosPerPage) + 1;
-            if (photoPage !== currentPage) {
-                currentPage = photoPage;
-                const url = new URL(window.location);
-                url.searchParams.set('page', photoPage);
-                window.history.replaceState({}, '', url);
-                renderPhotos();
-                renderPagination();
-            }
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-
-        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-        document.getElementById('lightboxPrev').addEventListener('click', () => navigateLightbox('prev'));
-        document.getElementById('lightboxNext').addEventListener('click', () => navigateLightbox('next'));
-        document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target === this) closeLightbox();
-        });
-        document.addEventListener('keydown', function(e) {
-            if (!document.getElementById('lightbox').classList.contains('active')) return;
-            if (e.key === 'ArrowLeft')  navigateLightbox('prev');
-            if (e.key === 'ArrowRight') navigateLightbox('next');
-            if (e.key === 'Escape')     closeLightbox();
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const pageParam = urlParams.get('page');
-            if (pageParam) {
-                const page = parseInt(pageParam);
-                const totalPages = Math.ceil(allPhotos.length / photosPerPage);
-                if (page >= 1 && page <= totalPages)  currentPage = page;
             }
             renderPhotos();
             renderPagination();
