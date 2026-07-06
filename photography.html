@@ -38,6 +38,21 @@
             transform: translateY(-50%) scale(1.2);
         }
 
+        /* Each photo shows in its natural shape, no forced box */
+        .photo-item {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .lightbox-meta {
             position: absolute;
             bottom: 30px;
