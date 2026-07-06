@@ -38,19 +38,28 @@
             transform: translateY(-50%) scale(1.2);
         }
 
-        /* Each photo shows in its natural shape, no forced box */
+        /* Grid where each photo fits naturally - no black/gray spaces */
         .photo-item {
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: transparent;
         }
 
         .photo-item img {
             width: 100%;
+            max-height: 280px; /* same max height for all photos */
             height: auto;
+            object-fit: scale-down;
             display: block;
+        }
+
+        /* Override grid so columns shrink to fit photo width */
+        #photoGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: end;
         }
 
         .lightbox-meta {
