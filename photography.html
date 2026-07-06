@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        /* ─── Lightbox arrows ─── */
         .lightbox-prev,
         .lightbox-next {
             position: absolute;
@@ -16,7 +17,7 @@
             transform: translateY(-50%);
             font-family: 'Press Start 2P', monospace;
             font-size: 2rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255,255,255,0.7);
             background: transparent;
             border: none;
             width: 60px;
@@ -28,49 +29,62 @@
             transition: all 0.3s ease;
             z-index: 10001;
         }
-
         .lightbox-prev { left: 40px; }
         .lightbox-next { right: 40px; }
-
         .lightbox-prev:hover,
         .lightbox-next:hover {
             color: #ff6600;
             transform: translateY(-50%) scale(1.2);
         }
 
+        /* ─── Grid: 3 equal columns, 3 equal rows per page ─── */
+        #photoGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 250px);
+            gap: 30px;
+        }
+
+        /* ─── Every cell is the same fixed box ─── */
         .photo-item {
             background: transparent !important;
             border: none !important;
             padding: 0 !important;
             min-height: unset !important;
-            break-inside: avoid;
-            margin-bottom: 30px;
-            line-height: 0;
-            width: 100%;
             display: flex;
+            align-items: center;
             justify-content: center;
-        }
-
-        .photo-item img {
-            height: 250px;
-            width: auto;
-            max-width: 100%;
-            display: block;
-            border: 2px solid #333;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
 
-        .photo-item:hover img {
+        /* ─── Image inside the cell ─── */
+        .photo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            display: block;
+            border: 2px solid #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* ─── Hover glow: landscape ─── */
+        .photo-item.landscape:hover img {
             border-color: #ff6600;
-            box-shadow: 0 0 8px rgba(255, 102, 0, 0.8), 0 0 15px rgba(255, 102, 0, 0.4);
+            box-shadow:
+                0 0 8px  rgba(255,102,0,0.9),
+                0 0 20px rgba(255,102,0,0.5);
         }
 
-        #photoGrid {
-            column-count: 3;
-            column-gap: 30px;
+        /* ─── Hover glow: portrait ─── */
+        .photo-item.portrait:hover img {
+            border-color: #ff6600;
+            box-shadow:
+                0 0 8px  rgba(255,102,0,0.9),
+                0 0 20px rgba(255,102,0,0.5);
         }
 
+        /* ─── Lightbox meta ─── */
         .lightbox-meta {
             position: absolute;
             bottom: 30px;
@@ -80,14 +94,12 @@
             gap: 40px;
             z-index: 10001;
         }
-
         .lightbox-meta span {
             font-family: 'DotGothic16', monospace;
             font-size: 0.85rem;
-            color: rgba(160, 160, 160, 0.85);
+            color: rgba(160,160,160,0.85);
             white-space: nowrap;
         }
-
         #lightboxImg {
             max-height: 80vh;
             max-width: 85%;
@@ -95,32 +107,23 @@
         }
 
         @media (max-width: 768px) {
-            .lightbox-prev,
-            .lightbox-next {
-                width: 40px;
-                height: 40px;
-                font-size: 1.5rem;
+            #photoGrid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 120px);
+                gap: 15px;
+            }
+            .lightbox-prev, .lightbox-next {
+                width: 40px; height: 40px; font-size: 1.5rem;
             }
             .lightbox-prev { left: 10px; }
             .lightbox-next { right: 10px; }
-
             .lightbox-meta {
-                gap: 12px;
-                flex-wrap: wrap;
+                gap: 12px; flex-wrap: wrap;
                 justify-content: center;
-                bottom: 15px;
-                width: 90%;
+                bottom: 15px; width: 90%;
             }
-
-            .lightbox-meta span {
-                font-size: 0.7rem;
-            }
-
-            #lightboxImg {
-                max-height: 75vh;
-                max-width: 90%;
-                margin-bottom: 70px;
-            }
+            .lightbox-meta span { font-size: 0.7rem; }
+            #lightboxImg { max-height: 75vh; max-width: 90%; margin-bottom: 70px; }
         }
     </style>
 </head>
@@ -136,8 +139,8 @@
 
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" id="lightboxClose">×</button>
-        <button class="lightbox-prev" id="lightboxPrev">‹</button>
-        <button class="lightbox-next" id="lightboxNext">›</button>
+        <button class="lightbox-prev"  id="lightboxPrev">‹</button>
+        <button class="lightbox-next"  id="lightboxNext">›</button>
         <img src="" alt="Full size photo" id="lightboxImg">
         <div class="lightbox-meta" id="lightboxMeta"></div>
     </div>
@@ -146,20 +149,46 @@
     <script src="js/main.js"></script>
     <script src="content/photos-data.js"></script>
     <script>
-
         let currentPage = 1;
         const photosPerPage = 9;
         let currentLightboxIndex = 0;
+
+        // ─── Detect portrait vs landscape, tag the element ───
+        function tagOrientation(imgEl, itemEl) {
+            // Use natural dimensions once loaded
+            if (imgEl.naturalWidth && imgEl.naturalHeight) {
+                if (imgEl.naturalHeight > imgEl.naturalWidth) {
+                    itemEl.classList.add('portrait');
+                } else {
+                    itemEl.classList.add('landscape');
+                }
+            } else {
+                imgEl.addEventListener('load', function () {
+                    if (imgEl.naturalHeight > imgEl.naturalWidth) {
+                        itemEl.classList.add('portrait');
+                    } else {
+                        itemEl.classList.add('landscape');
+                    }
+                });
+            }
+        }
 
         function renderPhotos() {
             const startIndex = (currentPage - 1) * photosPerPage;
             const photosToShow = allPhotos.slice(startIndex, startIndex + photosPerPage);
 
-            document.getElementById('photoGrid').innerHTML = photosToShow.map((photo, index) => `
+            const grid = document.getElementById('photoGrid');
+            grid.innerHTML = photosToShow.map((photo, index) => `
                 <div class="photo-item" onclick="openLightbox(${startIndex + index})">
                     <img src="photos/${photo.file}" alt="Photography" loading="lazy">
                 </div>
             `).join('');
+
+            // Tag each item after render
+            grid.querySelectorAll('.photo-item').forEach(item => {
+                const img = item.querySelector('img');
+                tagOrientation(img, item);
+            });
         }
 
         function renderPagination() {
