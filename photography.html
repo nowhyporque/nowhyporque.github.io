@@ -49,8 +49,9 @@
         }
 
         .photo-item img {
-            width: 100%;
-            height: auto;
+            height: 250px;       /* fixed height - every photo same height */
+            width: auto;         /* width adjusts naturally to the photo */
+            max-width: 100%;
             display: block;
             border: 2px solid #333;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
