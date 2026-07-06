@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Jun 1 - Jun 7",
-        title: "Oblivius - The Strokes",
-        youtubeId: "jEjdwhVuW74",
+        dateRange: "Jul 6 - Jul 12",
+        title: "Flexorcist - The Voidz",
+        youtubeId: "-jt4XggHzA8",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
