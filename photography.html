@@ -38,39 +38,33 @@
             transform: translateY(-50%) scale(1.2);
         }
 
-        /* Grid where each photo fits naturally - no black/gray spaces */
         .photo-item {
-            overflow: hidden;
             background: transparent !important;
             border: none !important;
             padding: 0 !important;
             min-height: unset !important;
-            display: flex;
-            justify-content: center;
+            break-inside: avoid;
+            margin-bottom: 30px;
+            line-height: 0;
         }
 
         .photo-item img {
-            max-height: 280px;
-            width: auto;
+            width: 100%;
             height: auto;
-            max-width: 100%;
             display: block;
             border: 2px solid #333;
-            transition: border-color 0.3s ease, transform 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
 
         .photo-item:hover img {
             border-color: #ff6600;
-            transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3);
         }
 
-        /* Override grid so each cell hugs its photo exactly */
         #photoGrid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            align-items: center;
+            column-count: 3;
+            column-gap: 30px;
         }
 
         .lightbox-meta {
@@ -259,7 +253,7 @@
             if (pageParam) {
                 const page = parseInt(pageParam);
                 const totalPages = Math.ceil(allPhotos.length / photosPerPage);
-                if (page >= 1 && page <= totalPages)  currentPage = page;
+                if (page >= 1 && page <= totalPages) currentPage = page;
             }
             renderPhotos();
             renderPagination();
