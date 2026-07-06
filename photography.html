@@ -41,16 +41,18 @@
         .photo-item {
             background: transparent !important;
             border: none !important;
-            padding: 0 !important;
+            padding: 10px !important;
+            margin: -10px !important;
             min-height: unset !important;
             break-inside: avoid;
-            margin-bottom: 30px;
+            margin-bottom: 20px !important;
             line-height: 0;
+            overflow: visible !important;
         }
 
         .photo-item img {
-            height: 250px;       /* fixed height - every photo same height */
-            width: auto;         /* width adjusts naturally to the photo */
+            height: 250px;
+            width: auto;
             max-width: 100%;
             display: block;
             border: 2px solid #333;
@@ -60,12 +62,13 @@
 
         .photo-item:hover img {
             border-color: #ff6600;
-            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.6), 0 0 40px rgba(255, 102, 0, 0.3);
         }
 
         #photoGrid {
             column-count: 3;
             column-gap: 30px;
+            overflow: visible;
         }
 
         .lightbox-meta {
@@ -263,6 +266,7 @@
 </body>
 </html> -->
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -306,13 +310,12 @@
         .photo-item {
             background: transparent !important;
             border: none !important;
-            padding: 10px !important;
-            margin: -10px !important;
+            padding: 0 !important;
             min-height: unset !important;
             break-inside: avoid;
-            margin-bottom: 20px !important;
+            margin-bottom: 30px;
             line-height: 0;
-            overflow: visible !important;
+            width: fit-content;
         }
 
         .photo-item img {
@@ -327,13 +330,12 @@
 
         .photo-item:hover img {
             border-color: #ff6600;
-            box-shadow: 0 0 20px rgba(255, 102, 0, 0.6), 0 0 40px rgba(255, 102, 0, 0.3);
+            box-shadow: 0 0 8px rgba(255, 102, 0, 0.8), 0 0 15px rgba(255, 102, 0, 0.4);
         }
 
         #photoGrid {
             column-count: 3;
             column-gap: 30px;
-            overflow: visible;
         }
 
         .lightbox-meta {
