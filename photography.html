@@ -336,6 +336,7 @@
         #photoGrid {
             column-count: 3;
             column-gap: 30px;
+            text-align: center;
         }
 
         .lightbox-meta {
@@ -524,7 +525,7 @@
             if (pageParam) {
                 const page = parseInt(pageParam);
                 const totalPages = Math.ceil(allPhotos.length / photosPerPage);
-                if (page >= 1 && page <= totalPages)  currentPage = page;
+                if (page >= 1 && page <= totalPages) currentPage = page;
             }
             renderPhotos();
             renderPagination();
