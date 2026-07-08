@@ -10,6 +10,10 @@
 //   notes    → optional short note (or leave as "")
 
 const allPhotos = [
+    { file: 'photo66.JPG', camera: 'Panasonic LUMIX ZS99', date: '07/08/2026', edited: 'No', location: 'Jackson Heights, Queens', notes: '' },
+    { file: 'photo65.JPG', camera: 'Panasonic LUMIX ZS99', date: '07/08/2026', edited:  'No', location: 'Jackson Heights, Queens', notes: '' },
+    { file: 'photo64.JPG', camera: 'Panasonic LUMIX ZS99', date: '07/08/2026', edited: 'No', location: 'Jackson Heights, Queens', notes: '' },
+    { file: 'photo63.JPG', camera: 'Panasonic LUMIX ZS99', date: '07/08/2026', edited: 'No', location: 'Jackson Heights, Queens', notes: '' },
     { file: 'photo62.JPG', camera: 'Panasonic LUMIX ZS99', date: '07/05/2026', edited: 'No', location: 'Soho, Manhattan', notes: '' },
     { file: 'photo61.JPG', camera: 'Panasonic LUMIX ZS99', date: '07/05/2026', edited:  'No', location: 'Soho, Manhattan', notes: '' },
     { file: 'photo60.JPG', camera: 'Panasonic LUMIX ZS99', date: '07/05/2026', edited: 'No', location: 'Soho, Manhattan', notes: '' },
