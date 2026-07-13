@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Jul 6 - Jul 12",
-        title: "Flexorcist - The Voidz",
-        youtubeId: "-jt4XggHzA8",
+        dateRange: "Jul 13 - Jul 19",
+        title: "You Rock My World - Michael Jackson",
+        youtubeId: "1-7ABIM2qjU",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
