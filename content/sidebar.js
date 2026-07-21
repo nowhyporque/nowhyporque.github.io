@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Jul 13 - Jul 19",
-        title: "You Rock My World - Michael Jackson",
-        youtubeId: "1-7ABIM2qjU",
+        dateRange: "Jul 20 - Jul 26",
+        title: "Encore - Catfish and the Bottlemen",
+        youtubeId: "ZV_5mWg_RhI",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
