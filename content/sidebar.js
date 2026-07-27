@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Jul 20 - Jul 26",
-        title: "Encore - Catfish and the Bottlemen",
-        youtubeId: "ZV_5mWg_RhI",
+        dateRange: "Jul 27 - Aug 2",
+        title: "Lonely in the Future - The Strokes",
+        youtubeId: "uF85MlVtCKM",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
