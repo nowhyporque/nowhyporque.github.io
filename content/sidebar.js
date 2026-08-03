@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Jul 27 - Aug 2",
-        title: "Lonely in the Future - The Strokes",
-        youtubeId: "uF85MlVtCKM",
+        dateRange: "Aug 3 - Aug 9",
+        title: "Going to Babble On - The Strokes",
+        youtubeId: "_K00LBGLGrA",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
