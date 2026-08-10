@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Aug 3 - Aug 9",
-        title: "Going to Babble On - The Strokes",
-        youtubeId: "_K00LBGLGrA",
+        dateRange: "Aug 10 - Aug 16",
+        title: "Dine N'Dash - The Strokes",
+        youtubeId: "kCyUOEslzt8",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
