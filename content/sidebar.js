@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Aug 10 - Aug 16",
-        title: "Dine N'Dash - The Strokes",
-        youtubeId: "kCyUOEslzt8",
+        dateRange: "Aug 17 - Aug 23",
+        title: "Wink - The Voidz",
+        youtubeId: "ttBI9J1uxwM",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
