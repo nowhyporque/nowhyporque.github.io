@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Aug 24 - Aug 30",
-        title: "Square Wave - The Voidz",
-        youtubeId: "n8-08vmrHHY",
+        dateRange: "Aug 31 - Sep 6",
+        title: "Russian Coney Island - The Voidz",
+        youtubeId: "fYmSwmzQlYc",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
