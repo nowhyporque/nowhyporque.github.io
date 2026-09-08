@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Aug 31 - Sep 6",
-        title: "Russian Coney Island - The Voidz",
-        youtubeId: "fYmSwmzQlYc",
+        dateRange: "Sep 7 - Sep 13",
+        title: "Gold - Spandau Ballet",
+        youtubeId: "ntG50eXbBtc",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
