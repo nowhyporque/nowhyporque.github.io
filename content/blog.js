@@ -1,13 +1,23 @@
 // Blog Posts Data
 const blogPosts = [
     {
+        date: "September 9, 2026",
+        time: "12:00 PM",
+        title: "Progress on 4SeamMetrics, Part 2",
+        content: "Hello everyone, here is a new video sharing my progress. I'm really excited for the future of this project, and trust me the videos are going to be more frequent :D",
+        youtubeId: "jupBnKXXPjc",
+        imageUrl: null,
+        projectTags: ["4seammetrics"],
+        type: "video"
+    },
+    {
         date: "March 19, 2026",
         time: "4:07 PM",
         title: "First YouTube Video for Project 4SeamMetrics",
         content: "Hey everyone, this is my first video. I'm really excited to work on this project. I'm excited to share my progress and know what I've been up to. If you have any suggestions or comments, feel free to comment on the video or email me personally, or even text me. My phone number is on my resume if you can find that. Haha.",
-        youtubeId: "ZC2ZVLARm3M", // YouTube video ID extracted from the URL
+        youtubeId: "ZC2ZVLARm3M",
         imageUrl: null,
-        projectTags: ["4seammetrics"], // Links to 4seammetrics project page
+        projectTags: ["4seammetrics"],
         type: "video"
     },
     // Add more blog posts here - newest first!
@@ -18,7 +28,6 @@ function renderBlogPreview() {
     const container = document.getElementById('blogPreviewContainer');
     if (!container) return;
 
-    // Show only the 3 most recent posts
     const recentPosts = blogPosts.slice(0, 3);
 
     container.innerHTML = recentPosts.map(post => `
@@ -55,7 +64,6 @@ function renderBlogPreview() {
         </div>
     `).join('');
     
-    // Add scroll detection for blog preview (same as updates section)
     setTimeout(() => {
         const scrollContainer = document.querySelector('.blog-preview-scroll-container');
         const blogSection = document.querySelector('.blog-preview-section');
