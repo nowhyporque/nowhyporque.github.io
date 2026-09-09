@@ -2,12 +2,12 @@
 const blogPosts = [
     {
         date: "September 9, 2026",
-        time: "12:00 PM",
+        time: "6:47 PM",
         title: "Progress on 4SeamMetrics, Part 2",
         content: "Hello everyone, here is a new video sharing my progress. I'm really excited for the future of this project, and trust me the videos are going to be more frequent :D",
         youtubeId: "jupBnKXXPjc",
         imageUrl: null,
-        projectTags: ["4seammetrics"],
+        projectTags: ["4seamMetrics"],
         type: "video"
     },
     {
@@ -17,7 +17,7 @@ const blogPosts = [
         content: "Hey everyone, this is my first video. I'm really excited to work on this project. I'm excited to share my progress and know what I've been up to. If you have any suggestions or comments, feel free to comment on the video or email me personally, or even text me. My phone number is on my resume if you can find that. Haha.",
         youtubeId: "ZC2ZVLARm3M",
         imageUrl: null,
-        projectTags: ["4seammetrics"],
+        projectTags: ["4seamMetrics"],
         type: "video"
     },
     // Add more blog posts here - newest first!
