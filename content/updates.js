@@ -1,8 +1,14 @@
 // Latest Updates Data
 const updatesData = [
     {
+        date: "September 10, 2026",
+        title: "New Life Update",
+        content: "Hey everyone. A quick update on my life. Started my second semester at CUNY School of Professional Studies. As you all know, or may know, I am pursuing my master's in data science, which is great. I've been enjoying it and been learning a lot of very useful things. Also, a quick update on my personal life: I have been experiencing still some chronic pain. Mechanically, everything looks pretty healthy. Now I am being referred to a rheumatologist because of the pain I'm having on my hips and the burning sensations I am experiencing on my shins, since any mechanical issue has been pretty much discarded. All in all, I do feel better since I've been going to the gym and stuff like that. This is more so to just find the root cause of why am I experiencing this discomfort I am. Besides that, I'm still looking for a full-time position. I really want to work. I want to put everything I've learned to good use. Even though I am working on my personal projects and am having fun with it, I just need to make some money of my own and help out around the house and stuff. Hopefully I can find one sooner than later. Haha. But yeah, that's a quick update. Hope you all have a great day.",
+        tags: ["Life Update", "graduate school", "projects", "job search"]
+    },
+    {
         date: "April 13, 2026",
-        title: "Quick Update on my ife",
+        title: "Quick Update on my life",
         content: "Hi everyone I have been really busy lately, I've had to make last-minute travel plans for this weekend due to a family emergency, so I won't be in the country for the next two to three weeks. I'm still gonna be active and working towards my goals since I'm bringing my laptop, but that's been what's been keeping up most of my time the last two weeks. Also, I've been dealing with a little bit of health problems, specifically my sciatic nerve, due to an injury I recently had. And apart from that, I've just been busy with college and applying to roles online as well. But I have been beginning to feel better, and since most of the planning and the getting ready for the flight this weekend is almost done, I now will have more time to invest in my projects as well as my professional site, or in other words, where you're reading this right now lol. So thank you to who ever is reading this haha,  and keeping up with my life :D . ",
         tags: ["Life Update"]
     },
