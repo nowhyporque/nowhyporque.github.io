@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Sep 7 - Sep 13",
-        title: "Gold - Spandau Ballet",
-        youtubeId: "ntG50eXbBtc",
+        dateRange: "Sep 14 - Sep 20",
+        title: "Distant Lover - Marvin Gaye",
+        youtubeId: "bk90Cxnw1tg",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
