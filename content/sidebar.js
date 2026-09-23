@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Sep 14 - Sep 20",
-        title: "Distant Lover - Marvin Gaye",
-        youtubeId: "bk90Cxnw1tg",
+        dateRange: "Sep 21 - Sep 27",
+        title: "Maneater - Daryl Hall & John Oates",
+        youtubeId: "yRYFKcMa_Ek",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
