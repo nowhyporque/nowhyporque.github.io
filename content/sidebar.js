@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Sep 21 - Sep 27",
-        title: "Maneater - Daryl Hall & John Oates",
-        youtubeId: "yRYFKcMa_Ek",
+        dateRange: "Sep 28 - Oct 4",
+        title: "Human Sadness - The Voidz",
+        youtubeId: "Q8k3qB61lhk",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
