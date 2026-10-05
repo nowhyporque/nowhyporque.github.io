@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Sep 28 - Oct 4",
-        title: "Human Sadness - The Voidz",
-        youtubeId: "Q8k3qB61lhk",
+        dateRange: "Oct 5 - Oct 11",
+        title: "11th Dimension - Julian Casablancas",
+        youtubeId: "pl15PlIXHIk",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
