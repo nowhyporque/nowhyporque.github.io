@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Oct 5 - Oct 11",
-        title: "11th Dimension - Julian Casablancas",
-        youtubeId: "pl15PlIXHIk",
+        dateRange: "Oct 12 - Oct 18",
+        title: "Permanent High School - The Voidz",
+        youtubeId: "hGAQW1EaZQo",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
