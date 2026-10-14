@@ -1,6 +1,16 @@
 // Blog Posts Data
 const blogPosts = [
     {
+        date: "October 13, 2026",
+        time: "4:40 PM",
+        title: "Progress on 4SeamMetrics, Part 3",
+        content: "Hello again! Here are a couple of updates on this project as well as my life. To be more specific, I managed to put together a period comparison — hope you all enjoy!",
+        youtubeId: "Yn0csxfdxPs",
+        imageUrl: null,
+        projectTags: ["4seamMetrics"],
+        type: "video"
+    },
+    {
         date: "September 9, 2026",
         time: "6:47 PM",
         title: "Progress on 4SeamMetrics, Part 2",
