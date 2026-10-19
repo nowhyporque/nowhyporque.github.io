@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Oct 12 - Oct 18",
-        title: "Permanent High School - The Voidz",
-        youtubeId: "hGAQW1EaZQo",
+        dateRange: "Oct 19 - Oct 25",
+        title: "When Will The Time of These Bastards End - The Voidz",
+        youtubeId: "BeR_z8sldl8",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
