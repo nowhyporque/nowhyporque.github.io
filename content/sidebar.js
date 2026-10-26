@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Oct 19 - Oct 25",
-        title: "When Will The Time of These Bastards End - The Voidz",
-        youtubeId: "BeR_z8sldl8",
+        dateRange: "Oct 26 - Nov 1",
+        title: "Like A Prayer - Madonna",
+        youtubeId: "79fzeNUqQbQ",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
