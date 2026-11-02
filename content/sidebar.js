@@ -2,9 +2,9 @@
 
 const sidebarData = {
     songOfWeek: {
-        dateRange: "Oct 26 - Nov 1",
-        title: "Like A Prayer - Madonna",
-        youtubeId: "79fzeNUqQbQ",
+        dateRange: "Nov 2 - Nov 8",
+        title: "It's A Sin - Pet Shop Boys",
+        youtubeId: "dRHetRTOD1Q",
         playlistLink: "https://youtube.com/playlist?list=PLJw14LNEtZV16eHchf7bT0-V377BwJYm5&si=zArQEk5qjaQOylYG"
     },
     
